@@ -22,27 +22,32 @@ class Station:
         self.station = station
         self.x = x
         self.y = y
-        self.neighbors_incoming = {} # dict with all stations and corresponding distance of all incoming connections
-        self.neighbors_outgoing = {} # dict with all station and corresponding distance of all outgoing connections
+        self.connection_count = 0
+        self.connection_incoming = {} # dict with all stations and corresponding distance of all incoming connections
+        self.connection_outgoing = {} # dict with all station and corresponding distance of all outgoing connections
 
     # will add all connections the station has to other stations. Distingushed between outgoing and incoming connections.
-    def add_neighborhood(self, df):
+    def add_connections(self, df):
 
         # outgoing connection: where station1 is the station and station2 the station where the train travels too.
-        n_outgoing = df.loc[df['station1'] == self.station]
-        n_outgoing_dict = {}
-        for index, row in n_outgoing.iterrows():
-            n_outgoing_dict[row['station2']] = row['distance']
+        c_outgoing = df.loc[df['station1'] == self.station]
+        c_outgoing_dict = {}
+        for index, row in c_outgoing.iterrows():
+            c_outgoing_dict[row['station2']] = row['distance']
 
-        self.neighbors_outgoing = n_outgoing_dict
+        self.connection_outgoing = c_outgoing_dict
 
         # incoming connection: where station2 is the station and station1 the station where the train travels too.
-        n_incoming = df.loc[df['station2'] == self.station]
-        n_incoming_dict = {}
-        for index, row in n_incoming.iterrows():
-            n_incoming_dict[row['station1']] = row['distance']
+        c_incoming = df.loc[df['station2'] == self.station]
+        c_incoming_dict = {}
+        for index, row in c_incoming.iterrows():
+            c_incoming_dict[row['station1']] = row['distance']
 
-        self.neighbors_incoming = n_incoming_dict
+        self.connection_incoming = c_incoming_dict
+
+        # add connection_count, shows how central the station is
+        self.connection_count = len(c_outgoing_dict) + len(c_incoming_dict)        
+
 
 
 
