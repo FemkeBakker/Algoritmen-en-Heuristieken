@@ -10,3 +10,4 @@ StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 # load data deel 2 - Heel NL
 ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
 StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
+print('yyeet')
