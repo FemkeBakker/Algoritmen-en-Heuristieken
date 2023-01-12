@@ -46,7 +46,20 @@ class Station:
         self.connection_incoming = c_incoming_dict
 
         # add connection_count, shows how central the station is
-        self.connection_count = len(c_outgoing_dict) + len(c_incoming_dict)        
+        self.connection_count = len(c_outgoing_dict) + len(c_incoming_dict)  
+
+    def is_begin_station(self):
+        if len(self.connection_incoming) == 0:
+            self.begin_station = True
+        else:
+            self.begin_station = False
+
+    def is_end_station(self):
+        if len(self.connection_outgoing) == 0:
+            self.end_station = True
+        else:
+            self.end_station = True
+
 
 
 
