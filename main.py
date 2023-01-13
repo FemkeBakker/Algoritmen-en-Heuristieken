@@ -15,7 +15,7 @@ StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 # all stations in NH & NZ
 # stations_Holland = set(StationsNationaal['station'])
 
-#classes: stations, verbindingen, trajecten
+#classes: stations, graph, trajecten
 
 class Station:
     def __init__(self, station, x=np.nan, y=np.nan):
@@ -59,6 +59,24 @@ class Station:
             self.end_station = True
         else:
             self.end_station = True
+
+class Graph():
+    def __init__(self, df_connecties, df_stations):
+        self.stations = self.get_stations(df_stations)
+        
+
+    def get_stations(self, df_stations):
+        return {station:station for station in df_stations['station'].values}
+
+    def get_connections_outgoing()
+
+graaf = Graph(ConnectiesHolland, StationsHolland)
+print(graaf.stations)
+
+
+
+
+
 
 
 
