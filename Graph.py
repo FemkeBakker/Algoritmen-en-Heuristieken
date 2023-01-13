@@ -1,6 +1,8 @@
 import networkx as nx
 import pandas as pd
 import numpy as np 
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -23,18 +25,32 @@ class Graph():
     def get_connections(self, df_connecties):
         station1=[station for station in df_connecties['station1'].values]
         station2=[station for station in df_connecties['station2'].values]
-        connections = list(zip(station1, station2)) 
+        reistijd=[tijd for tijd in df_connecties['distance'].values]
+
+        connections = list(zip(station1, station2, reistijd)) 
+        print(connections)
         return connections
 
     def make_graph(self):
-        graaf = nx.Graph()
+        graaf = nx.DiGraph()
         graaf.add_nodes_from(self.stations)
-        graaf.add_edges_from(self.connections)
+        graaf.add_weighted_edges_from(self.connections)
         return graaf
+
 
 G = Graph(ConnectiesHolland, StationsHolland)
 print(G.graaf)
+
+# Teken de graaf en sla op als png in project map
+nx.draw_spring(G.graaf, with_labels=True)
+plt.savefig("plot1.png")
     
+
+
+
+
+
+# ---------------------------------------------------------------
 # G = nx.Graph()
 # graaf = Graph(ConnectiesHolland, StationsHolland)
 # G.add_nodes_from(graaf.stations)
