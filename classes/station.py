@@ -1,7 +1,6 @@
 # CASE: RailNL - Team: RailNL-STF
 
 #libraries
-import pandas as pd
 import numpy as np 
 
 class Station:
