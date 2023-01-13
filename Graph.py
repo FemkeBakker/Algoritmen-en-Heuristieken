@@ -28,7 +28,7 @@ class Graph():
         reistijd=[tijd for tijd in df_connecties['distance'].values]
 
         connections = list(zip(station1, station2, reistijd)) 
-        print(connections)
+        # print(connections)
         return connections
 
     def make_graph(self):
@@ -43,6 +43,10 @@ print(G.graaf)
 
 # Teken de graaf en sla op als png in project map
 nx.draw_spring(G.graaf, with_labels=True)
+label_weights = nx.get_edge_attributes(G.graaf,'weight')
+
+pos=nx.spring_layout(G.graaf, seed=7)
+nx.draw_networkx_edge_labels(G.graaf, pos, edge_labels=label_weights)
 plt.savefig("plot1.png")
     
 
