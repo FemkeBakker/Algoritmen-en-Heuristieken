@@ -1,3 +1,4 @@
+# ---- We do not use this Class, kept the code just in case ---- #
 # example traject
 traject = {"connecties" : ["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"], "min": 100, "all_connections":28}
 
