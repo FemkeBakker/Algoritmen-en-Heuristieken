@@ -6,6 +6,7 @@ import pandas as pd
 # import class functions from the class files
 from classes.station import Station
 from classes.graph import Graph
+from Visualisatie.plot import * # change *
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -31,6 +32,11 @@ stations_holland_class = make_instances_station(StationsHolland, ConnectiesHolla
 stations_nl_class = make_instances_station(StationsNationaal, ConnectiesNationaal)
 
 
+# example input for plot visualization
+trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"], 
+["Amsterdam Sloterdijk", "Amsterdam Centraal", "Amsterdam Amstel", "Amsterdam Zuid", "Schiphol Airport"], 
+["Rotterdam Alexander", "Gouda", "Alphen a/d Rijn", "Leiden Centraal"," Schiphol Airport", "Amsterdam Zuid"]]
 
-
-
+# creates plot of trajecten, return None, map can be found in Visualisatie/map.html
+create_plot(trajecten, StationsHolland, "Holland") 
+create_plot(trajecten, StationsNationaal, "NL")
