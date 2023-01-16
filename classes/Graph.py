@@ -39,7 +39,7 @@ class Graph():
 
 
 G = Graph(ConnectiesHolland, StationsHolland)
-print(G.graaf)
+# print(G.graaf)
 
 # Teken de graaf en sla op als png in project map
 nx.draw_spring(G.graaf, with_labels=True)
