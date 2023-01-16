@@ -6,7 +6,7 @@ import pandas as pd
 # import class functions from the class files
 from classes.station import Station
 from classes.Graph import Graph
-from Visualisatie.plot import * # change *
+from Visualisatie.plot import create_plot
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
