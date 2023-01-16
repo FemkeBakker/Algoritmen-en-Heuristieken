@@ -44,5 +44,5 @@ label_weights = nx.get_edge_attributes(G.graaf,'weight')
 
 pos=nx.spring_layout(G.graaf, seed=7)
 nx.draw_networkx_edge_labels(G.graaf, pos, edge_labels=label_weights)
-plt.savefig("plot1.png")
+plt.savefig("graph1.png")
     
