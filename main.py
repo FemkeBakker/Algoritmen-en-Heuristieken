@@ -2,6 +2,7 @@
 
 # libraries
 import pandas as pd
+import networkx as nx
 
 # import class functions from the class files
 from classes.station import Station
@@ -24,7 +25,7 @@ G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 def make_instances_station(df_stations, df_connecties):
     stations = dict()
     for station in df_stations['station'].values:
-        stations[station] = Station(station, df_connecties)
+        stations[station] = Station(station, df_connecties, df_stations)
     return stations
 
 # create Station instances
@@ -40,3 +41,4 @@ trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"],
 # creates plot of trajecten, return None, map can be found in Visualisatie/map.html
 create_plot(trajecten, StationsHolland, "Holland") 
 create_plot(trajecten, StationsNationaal, "NL")
+

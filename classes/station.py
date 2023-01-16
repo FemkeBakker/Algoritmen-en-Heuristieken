@@ -4,10 +4,10 @@
 import numpy as np 
 
 class Station:
-    def __init__(self, station, df_connecties, x=np.nan, y=np.nan):
+    def __init__(self, station, df_connecties, df_stations):
         self.station = station
-        self.x = x
-        self.y = y
+        self.x = df_stations.loc[df_stations['station'] == station]['x'].values[0]
+        self.y = df_stations.loc[df_stations['station'] == station]['y'].values[0]
         self.connection_incoming = self.add_connections_incoming(df_connecties) # dict with all stations and corresponding distance of all incoming connections
         self.connection_outgoing = self.add_connections_outgoing(df_connecties) # dict with all station and corresponding distance of all outgoing connections
         self.connection_count = len(self.connection_incoming) + len(self.connection_outgoing) # shows how central the station is 
