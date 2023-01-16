@@ -5,7 +5,7 @@ import pandas as pd
 
 # import class functions from the class files
 from classes.station import Station
-from classes.graph import Graph
+from classes.Graph import Graph
 from Visualisatie.plot import * # change *
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
