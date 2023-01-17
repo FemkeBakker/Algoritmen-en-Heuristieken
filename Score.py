@@ -21,32 +21,25 @@ def removeDuplicates(lst):
 
 #function for calculating total score
 def calculate_score(G, paths):
-    Min= 0
+    Min = 0
     verbindingen = list()
+
     for path in paths:
         Min += nx.path_weight(G.graaf, path, weight = "weight")
         for station1, station2 in zip(path[0::], path[1::]):
             verbindingen.append((station1, station2))
     verbindingen = removeDuplicates(verbindingen)
 
+    # fraction of total available connections
     p = len(verbindingen) / len(G.graaf.edges)
+
+    # Total trajectories
     T = len(paths)
-    # print(p, Min, T)
     
+    # calculating score with formula
     K = p * 1000 - (T * 100 + Min)
     return K
 
-# calculate score for Holland data
+# calculate score for Holland dataset
 random_score = calculate_score(G_holland, random_sol)
 print(random_score)
-
-# def score(G, paths):
-#     Min = 0
-#     stations = list()
-#     for path in paths:
-#         Min += nx.path_weight(G.graaf, path, weight = "weight")
-#         stations.extend(path)
-#     stations = set(stations)
-#     p = len(stations) / len(G.graaf.edges)
-
-#     print(p, stations, len(G.graaf.edges), Min)
