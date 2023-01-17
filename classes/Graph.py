@@ -1,6 +1,6 @@
 import networkx as nx
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 
 class Graph():
     def __init__(self, df_connecties, df_stations):
@@ -28,21 +28,21 @@ class Graph():
 
 # ---- Draw a graph - to check funtion, not relevant for the solution ---- #
 
-# load data Deel 1 - Noord-Holland & Zuid-Holland
-ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
-StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
+# # load data Deel 1 - Noord-Holland & Zuid-Holland
+# ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
+# StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
-# load data deel 2 - Heel NL
-ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
-StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
+# # load data deel 2 - Heel NL
+# ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
+# StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 
-G = Graph(ConnectiesHolland, StationsHolland)
+# G = Graph(ConnectiesHolland, StationsHolland)
 
-# Teken de graaf en sla op als png in project map
-nx.draw_spring(G.graaf, with_labels=True)
-label_weights = nx.get_edge_attributes(G.graaf,'weight')
+# # Teken de graaf en sla op als png in project map
+# nx.draw_spring(G.graaf, with_labels=True)
+# label_weights = nx.get_edge_attributes(G.graaf,'weight')
 
-pos=nx.spring_layout(G.graaf, seed=7)
-nx.draw_networkx_edge_labels(G.graaf, pos, edge_labels=label_weights)
-plt.savefig("graph1.png")
+# pos=nx.spring_layout(G.graaf, seed=7)
+# nx.draw_networkx_edge_labels(G.graaf, pos, edge_labels=label_weights)
+# plt.savefig("graph1.png")
     
