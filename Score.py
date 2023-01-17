@@ -134,4 +134,4 @@ print(random_score)
 
 # # calculate score for Holland dataset
 # random_score = calculate_score(G_holland, random_sol)
-# print(random_score)
+# print(random_score) 
