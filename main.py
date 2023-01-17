@@ -3,6 +3,9 @@
 # libraries
 import pandas as pd
 import networkx as nx
+import pandas as pd
+import folium
+import random
 
 # import class functions from the class files
 from classes.station import Station
@@ -41,4 +44,5 @@ trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"],
 # creates plot of trajecten, return None, map can be found in Visualisatie/map.html
 create_plot(trajecten, StationsHolland, "Holland") 
 create_plot(trajecten, StationsNationaal, "NL")
+
 
