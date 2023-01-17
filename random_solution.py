@@ -21,6 +21,7 @@ def generate_all_trajecten(G):
     return (all_paths)
 
 all_trajecten = generate_all_trajecten(G_holland)
+# print(all_trajecten)
 
 def random_solution(trajecten):
     solution = random.sample(trajecten, k=7)
