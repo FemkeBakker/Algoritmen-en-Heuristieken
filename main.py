@@ -44,3 +44,4 @@ trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"],
 create_plot(trajecten, StationsHolland, "Holland") 
 create_plot(trajecten, StationsNationaal, "NL")
 
+
