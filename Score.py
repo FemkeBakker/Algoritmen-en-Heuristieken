@@ -1,19 +1,25 @@
+# import libraries
 import pandas as pd
 from random import sample
 import networkx as nx
 import random
 
+# import classes
 from classes.Graph import Graph
 from random_solution import *
 
+# load dataframes from csv files
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
+# create graph (using Graph() function) for Holland dataset
 G_holland = Graph(ConnectiesHolland, StationsHolland)
 
+# function for removing duplicate tuples in list of tuples
 def removeDuplicates(lst):
     return [j for j in (set(tuple(i) for i in lst))]
 
+#function for calculating total score
 def calculate_score(G, paths):
     Min= 0
     verbindingen = list()
@@ -30,7 +36,7 @@ def calculate_score(G, paths):
     K = p * 1000 - (T * 100 + Min)
     return K
 
-
+# calculate score for Holland data
 random_score = calculate_score(G_holland, random_sol)
 print(random_score)
 
