@@ -37,7 +37,7 @@ def calculate_score(G, paths):
     T = len(paths)
     
     # calculating score with formula
-    K = p * 1000 - (T * 100 + Min)
+    K = (p * 10000 - (T * 100 + Min))
     return K
 
 # calculate score for Holland dataset
