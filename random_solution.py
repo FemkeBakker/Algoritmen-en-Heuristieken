@@ -1,5 +1,4 @@
 import pandas as pd
-from random import sample
 import networkx as nx
 import random
 
