@@ -60,18 +60,3 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
 print("Random score Holland: ",random_score_holland)
 print("Random score Nederland: ",random_score_nl)
-
-# print(alle_trajecten_holland, alle_trajecten_nl, len(alle_trajecten_holland), len(alle_trajecten_nl))
-print(len(alle_trajecten_holland), len(alle_trajecten_nl))
-max_len = 0
-c = 0
-for traject in alle_trajecten_holland:
-    # print(len(traject))
-    if len(traject) > max_len:
-        max_len = len(traject)
-        c = 0
-    elif len(traject) == max_len:
-        c += 1
-    if len(traject) == 11:
-        print(traject)
-print(max_len, c)
