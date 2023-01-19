@@ -10,6 +10,7 @@ import random
 from classes.station import Station
 from classes.Graph import Graph
 from Visualisatie.plot import create_plot
+from random_solution import *
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -43,5 +44,13 @@ trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"],
 # creates plot of trajecten, return None, map can be found in Visualisatie/map.html
 create_plot(trajecten, StationsHolland, "Holland") 
 create_plot(trajecten, StationsNationaal, "NL")
+
+# generate all possible simple paths in graph
+alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
+alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
+
+# get random solution, chosen from all possible simple paths in graph
+random_sol_holland = random_solution(alle_trajecten_holland, 7)
+random_sol_nl = random_solution(alle_trajecten_nl, 20)
 
 
