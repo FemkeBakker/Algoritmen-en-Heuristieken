@@ -8,12 +8,17 @@ import random
 from classes.Graph import Graph
 from random_solution import *
 
-# load dataframes from csv files
+# load data Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
-# create graph (using Graph() function) for Holland dataset
+# load data NL
+ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
+StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
+
+# create Graphs
 G_holland = Graph(ConnectiesHolland, StationsHolland)
+G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
 # function for removing duplicate tuples in list of tuples
 def removeDuplicates(lst):
@@ -40,6 +45,19 @@ def calculate_score(G, paths):
     K = (p * 10000 - (T * 100 + Min))
     return K
 
+
+# generate all possible simple paths in graph
+alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
+alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
+
+# get random solution, chosen from all possible simple paths in graph
+random_sol_holland = random_solution(alle_trajecten_holland, 7)
+random_sol_nl = random_solution(alle_trajecten_nl, 20)
+
 # calculate score for Holland dataset
-random_score = calculate_score(G_holland, random_sol)
-print(random_score)
+random_score_holland = calculate_score(G_holland, random_sol_holland)
+print(random_score_holland)
+
+# # calculate score for Holland dataset
+random_score_nl = calculate_score(G_nederland, random_sol_nl)
+print(random_score_nl)
