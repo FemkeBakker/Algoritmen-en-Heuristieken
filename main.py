@@ -11,8 +11,9 @@ from classes.station import Station
 from classes.Graph import Graph
 from Visualisatie.plot import create_plot
 from random_solution import *
-from connections_paths import from_connections_to_paths, from_paths_to_connections
 from Score import *
+from algorithms.HillClimber import HillClimber
+
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -58,5 +59,12 @@ random_sol_nl = random_solution(alle_trajecten_nl, 20)
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-print("Random score Holland: ",random_score_holland)
-print("Random score Nederland: ",random_score_nl)
+# print("Random score Holland: ",random_score_holland)
+# print("Random score Nederland: ",random_score_nl)
+
+# run Hill Climber
+hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
+# print(hill_climber.score_state)
+hill_climber.climbing_hill(2000)
+# print(hill_climber.score_state)
+

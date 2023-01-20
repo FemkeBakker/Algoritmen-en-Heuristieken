@@ -16,3 +16,4 @@ def from_connections_to_paths(connections):
     # add last station
     path.append(connections[-1][1])
     return path
+
