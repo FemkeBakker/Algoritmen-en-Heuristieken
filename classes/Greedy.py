@@ -4,7 +4,7 @@
 # alle trajecten af gaan
 # selecteer alle trajecten met de grootst voorkomende lengte
 # als het er één is, selecteer je die
-# als het er meer zijn, kijk je naar de eerst volgende belangrijkste constraint (na het aantal verbindingen, p, komt het aantal minuten: Min. Want door steeds de langste trajecten te nemen minimaliseer je ook al een beetje het aantal trajecten)
+# als het er meer zijn, kijk je naar de eerst volgende belangrijkste constraint (na het aantal verbindingen, p, komt het aantal minuten: Min. Want door steeds de langste trajecten te nemen minimaliseer je ook al een beetje het aantal trajecten. Als je kijkt per verbinding en je filtert de lange trajecten er uit, blijven er korte over met de missende verbindingen die niet in de lange trajecten zitten?)
 # bereken Min voor de trajecten, kies het traject met kleinste Min
 # Verwijder het gekozen traject uit de lijst met alle trajecten
 # ontleed het traject in verbindingen en verwijder de trajecten met dezelfde verbindingen
