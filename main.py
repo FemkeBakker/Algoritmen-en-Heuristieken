@@ -13,6 +13,8 @@ from Visualisatie.plot import create_plot
 from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
+from algorithms.Greedy import Greedy
+
 
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
@@ -68,3 +70,8 @@ hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland
 hill_climber.climbing_hill(2000)
 # print(hill_climber.score_state)
 
+
+# create instance of Greedy
+greedy = Greedy(alle_trajecten_holland, G_holland, 7)
+
+print(greedy.kies_trajecten())
