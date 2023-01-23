@@ -71,11 +71,11 @@ hill_climber.climbing_hill(2000)
 
 # run Simulated Annealing
 sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
-print(sim_annealing.score_state)
+# print(sim_annealing.score_state)
 sim_annealing.Simulate_Annealing(2000)
-print(sim_annealing.score_state)
+# print(sim_annealing.score_state)
 
 # create instance of Greedy
-# greedy = Greedy(alle_trajecten_holland, G_holland, 7)
+greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
 
-# print(greedy.kies_trajecten())
+print(greedy_holland.kies_trajecten())
