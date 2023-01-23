@@ -14,8 +14,7 @@ from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
 from algorithms.Greedy import Greedy
-
-
+from algorithms.SimAnnealing import SimAnnealing
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -70,8 +69,13 @@ hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland
 hill_climber.climbing_hill(2000)
 # print(hill_climber.score_state)
 
+# run Simulated Annealing
+sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
+print(sim_annealing.score_state)
+sim_annealing.Simulate_Annealing(2000)
+print(sim_annealing.score_state)
 
 # create instance of Greedy
-greedy = Greedy(alle_trajecten_holland, G_holland, 7)
+# greedy = Greedy(alle_trajecten_holland, G_holland, 7)
 
-print(greedy.kies_trajecten())
+# print(greedy.kies_trajecten())
