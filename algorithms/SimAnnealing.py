@@ -1,16 +1,11 @@
+# import libraries
+
 import random
 import numpy as np
 
+# import classes
 from Score import *
 from .HillClimber import HillClimber
- 
-"""
-The Simulated Annealing class that changes a random node in the graph to a random valid value.
-Each improvement or equivalent solution is kept for the next iteration.
-Also sometimes accepts solutions that are worse, depending on the current temperature.
-Most of the functions are similar to those of the HillClimber class, which is why
-we use that as a parent class.
-"""
 
 # maak Simulated Annealing class met HillClimber als parent
 class SimAnnealing(HillClimber):
@@ -26,11 +21,11 @@ class SimAnnealing(HillClimber):
     def Simulate_Annealing(self, iteraties):
 
         for i in range(iteraties):
-            # select random traject from state and random traject from all possible trajecten
+            # select random traject uit de state en een random traject uit alle mogelijke trajecten
             old_traject = random.choice(self.state)
             new_traject = random.choice(self.trajecten)
 
-            # do not allow duplicates in solution
+            # zorg dat er geen dubbele trajecten bij zitten
             if new_traject not in self.state:
 
                 # maak een nieuwe staat met nieuwe traject ipv oude
@@ -39,16 +34,16 @@ class SimAnnealing(HillClimber):
                 # bereken nieuwe score
                 new_score = calculate_score(self.graaf, new_state)
                 
-                # kansberekening voor simulatie
+                # bereken 'kans' voor aannemen nieuwe state
                 delta =  self.score_state - new_score
                 kans = np.exp(-delta / self.t)
             
-                # accepteer nieuwe als 'dartpijl' lager is dan 
+                # accepteer nieuwe state als 'kans' lager is dan een random getal tussen 0 en 1
                 if random.random() < kans:
                     self.state = new_state
                     self.score_state = new_score
 
-                # update temp
+                # update temperatuur
                 self.t = self.t - (self.t0 / iteraties)
                 # print('temperatuur:', self.t) # check
 
