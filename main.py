@@ -78,4 +78,5 @@ sim_annealing.Simulate_Annealing(2000)
 # create instance of Greedy
 greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
 
-print(greedy_holland.kies_trajecten())
+# print greedy trajecten en score holland
+# print(greedy_holland.kies_trajecten())
