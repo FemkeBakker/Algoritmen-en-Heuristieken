@@ -36,7 +36,7 @@ G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 # bereken score voor de gekozen set aan trajecten.
 
 """ Versie waarbij meerdere langste lijsten worden gefilterd op laagste Min """
-class Greedy:
+class Greedy_Constructive:
     def __init__(self, alle_trajecten, G, max_trajecten):
         self.trajecten = alle_trajecten
         self.G = G
