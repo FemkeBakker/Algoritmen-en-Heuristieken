@@ -75,8 +75,8 @@ sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holla
 sim_annealing.Simulate_Annealing(2000)
 # print(sim_annealing.score_state)
 
-# create instance of Greedy
-greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
+# create instance of Greedy Constructive for holland
+greedy_constructive_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 
-# print greedy trajecten en score holland
-# print(greedy_holland.kies_trajecten())
+# print greedy constructive trajecten en score holland
+# print(greedy_constructive_holland.kies_trajecten())

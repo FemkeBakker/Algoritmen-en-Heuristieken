@@ -19,7 +19,7 @@ StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 G_holland = Graph(ConnectiesHolland, StationsHolland)
 G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
-""" PSEUDO-CODE VOOR 'GREEDY' ALGORITME """
+""" PSEUDO-CODE VOOR CONSTRUCTIVE 'GREEDY' ALGORITME """
 # neem lijst met alle mogelijke trajecten, plaats in een queue.
 # pak het langste traject.
 # check of er meerdere trajecten zijn met de langst voorkomende lengte.
