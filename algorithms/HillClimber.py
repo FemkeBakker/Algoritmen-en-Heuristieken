@@ -66,10 +66,7 @@ class HillClimber:
 
                 # keep the new state if the score is better, else keep old state
                 self.compare_states(new_state)
-                # new_score = calculate_score(self.graaf, new_state)
-                # if new_score > self.score_state:
-                #     self.state = new_state
-                #     self.score_state = new_score
+                
 
 
 
