@@ -65,9 +65,9 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
 # run Hill Climber
 hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
-# print(hill_climber.score_state)
+print(hill_climber.score_state)
 hill_climber.climbing_hill(2000)
-# print(hill_climber.score_state)
+print(hill_climber.score_state)
 
 # run Simulated Annealing
 sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
