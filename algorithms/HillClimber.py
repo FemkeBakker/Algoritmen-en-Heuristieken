@@ -14,6 +14,7 @@ import copy
 
 class HillClimber:
     def __init__(self, beginstate, trajecten, G):
+        self.name = "HillClimber"
         self.state = copy.deepcopy(beginstate)
         self.trajecten = trajecten
         self.graaf = copy.deepcopy(G)
@@ -48,7 +49,7 @@ class HillClimber:
             self.state = new_state
             self.score_state = new_score
 
-    def climbing_hill(self, iteraties):
+    def run(self, iteraties):
 
         """
         Climbing Hill algorithm. Keeps the best presented score, will run for x iterations.

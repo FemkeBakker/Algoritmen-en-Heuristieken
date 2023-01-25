@@ -15,6 +15,8 @@ from Score import *
 from algorithms.HillClimber import HillClimber
 from algorithms.Greedy import Greedy
 from algorithms.SimAnnealing import SimAnnealing
+from experiment.generate_experiment import *
+
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
@@ -65,18 +67,27 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
 # run Hill Climber
 hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
-print(hill_climber.score_state)
-hill_climber.climbing_hill(2000)
-print(hill_climber.score_state)
+# print(hill_climber.score_state)
+hill_climber.run(200)
+# print(hill_climber.score_state)
 
 # run Simulated Annealing
-sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
+# sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
 # print(sim_annealing.score_state)
-sim_annealing.Simulate_Annealing(2000)
+# sim_annealing.Simulate_Annealing(2000)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy
-greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
+# greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
 
 # print greedy trajecten en score holland
 # print(greedy_holland.kies_trajecten())
+
+
+# beginstate = {'Greedy' : random_sol_holland} 
+
+experiment = generate_experiment(HillClimber, [1, 10], 2, alle_trajecten_holland, 7, G_holland)
+experiment.run_experiment()
+
+
+
