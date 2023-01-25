@@ -19,7 +19,7 @@ StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 G_holland = Graph(ConnectiesHolland, StationsHolland)
 G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
-""" PSEUDO-CODE VOOR 'GREEDY' ALGORITME """
+""" PSEUDO-CODE VOOR CONSTRUCTIVE 'GREEDY' ALGORITME """
 # neem lijst met alle mogelijke trajecten, plaats in een queue.
 # pak het langste traject.
 # check of er meerdere trajecten zijn met de langst voorkomende lengte.
@@ -36,7 +36,7 @@ G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 # bereken score voor de gekozen set aan trajecten.
 
 """ Versie waarbij meerdere langste lijsten worden gefilterd op laagste Min """
-class Greedy:
+class Greedy_Constructive:
     def __init__(self, alle_trajecten, G, max_trajecten):
         self.trajecten = alle_trajecten
         self.G = G

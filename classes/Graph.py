@@ -1,6 +1,7 @@
 import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt 
+import math as math
 
 class Graph():
     def __init__(self, df_connecties, df_stations):
@@ -32,17 +33,17 @@ class Graph():
 # ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
 # StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
-# # load data deel 2 - Heel NL
+# # # load data deel 2 - Heel NL
 # ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
 # StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 
 # G = Graph(ConnectiesHolland, StationsHolland)
 
-# # Teken de graaf en sla op als png in project map
-# nx.draw_spring(G.graaf, with_labels=True)
+# # # Teken de graaf en sla op als png in project map
+# nx.draw(G.graaf, with_labels=True)
 # label_weights = nx.get_edge_attributes(G.graaf,'weight')
 
-# pos=nx.spring_layout(G.graaf, seed=7)
+# pos=nx.spring_layout(G.graaf, seed=7, k=5/math.sqrt(G.graaf.order()))
 # nx.draw_networkx_edge_labels(G.graaf, pos, edge_labels=label_weights)
 # plt.savefig("graph1.png")
     
