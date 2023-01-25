@@ -39,5 +39,5 @@ class Greedy_Iterative:
         self.max_trajecten = max_trajecten
         self.max_Min = max_Min
 
-    def kies_trajecten(self):
+    # def kies_trajecten(self):
         

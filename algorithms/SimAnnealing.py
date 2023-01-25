@@ -13,7 +13,7 @@ class SimAnnealing(HillClimber):
     def __init__(self, beginstate, trajecten, G, temperatuur=1):
         # gebruik init van HillClimber
         super().__init__(beginstate, trajecten, G)
-
+        self.name = "SimAnnealing"
         self.t0 = temperatuur
         self.t = temperatuur
 
