@@ -61,11 +61,7 @@ class generate_experiment():
         data = pd.DataFrame(scores, columns=['begin_score', 'eind_score'])
         return data
 
-
-    def save_csv(self, data, iteratie):
-        """
-        Functie zet DataFrame in csv file.
-        """
+    def create_directory(self):
         # maak map aan als deze nog niet bestaat.
         if self.beginstate != "random":
             beginstate = list(self.beginstate.keys())[0]
@@ -75,19 +71,55 @@ class generate_experiment():
         path = "experiment/{}-{}".format(self.algorithm_object.name, beginstate)
         if not os.path.exists(path):
             os.makedirs(path)
+        return(path)
+
+    def save_csv(self, data, iteratie):
+        """
+        Functie zet DataFrame in csv file.
+        """
+        path = self.create_directory()
 
         # sla dataframe op in csv
         file = "{}/iteratie{}.csv".format(path, iteratie)
         data.to_csv(file, index=False)
-        
+
+    def get_info_data(self, iteratie, data):
+        # create list with iteratie, mean, max and min of the iteration
+
+        info_data_list = []
+        info_data_list.append(iteratie)
+        info_data_list.append(data["eind_score"].mean())
+        info_data_list.append(data['eind_score'].max())
+        info_data_list.append(data['eind_score'].min())
+        return(info_data_list)
+
+    def create_info_data_csv(self):
+        # create DataFrame from data about the mean, max and min of all the iterations and save in csv
+
+        info_data = pd.DataFrame(self.info_data_list, columns=["iteratie",'mean', 'max', 'min'])
+        path = self.create_directory()
+        file = "{}/info_data.csv".format(path, index=False)
+        info_data.to_csv(file, index = False)
 
     def run_experiment(self):
         """
         Functie geneert de scores voor de verschillende iteraties.
         """
+        self.info_data_list = []
+
         for iteratie in self.iteraties:
+            # calculate begin en eindscore van de iteratie
             data = self.test_iteraties(iteratie)
+
+            # sla info over het gemiddelde, max en min van iteratie op
+            self.info_data_list.append(self.get_info_data(iteratie, data))
+
+            # sla de eind en beginscores op in een csv
             self.save_csv(data, iteratie)
+
+        # maak dataframe van het gemiddelde, max en min van alle iteraties en sla op in csv
+        self.create_info_data_csv()
+        
 
 
 
