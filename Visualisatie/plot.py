@@ -1,9 +1,11 @@
 # Import libraries
-# Benodigd: pandas, folium
+# Benodigd: pandas, folium, seaborn
 
 import pandas as pd
 import folium
 import random
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def create_plot(trajecten, df_stations, deel):
     # Create map zoomed in on the Netherlands
@@ -38,4 +40,10 @@ def create_plot(trajecten, df_stations, deel):
 
     return None
 
-
+# maak boxplot van 2 algoritmen
+def create_boxplot(data, deel):
+    bp = sns.boxplot(data, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind')
+    bp.set(xlabel="Algoritme", ylabel="Score")
+    bp.set_xticklabels(['Hill Climber', 'Simulated Annealing'])
+    bp= plt.savefig('Visualisatie/boxplot{}.png'.format(deel))
+    return bp
