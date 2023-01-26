@@ -98,8 +98,8 @@ sim_annealing.run(2000)
 
 # beginstate = {'Greedy' : random_sol_holland} 
 # iteraties = [10, 100, 200]
-iteraties = [2000]
-# iteraties = [200, 500, 1000, 2000,5000, 8000, 10000, 12000, 14000, 15000]
+# iteraties = [2000]
+iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 experiment = generate_experiment(HillClimber, iteraties, 150, alle_trajecten_holland, 7, "Holland", G_holland)
 experiment.run_experiment()
 
