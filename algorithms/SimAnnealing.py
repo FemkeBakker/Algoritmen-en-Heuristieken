@@ -18,7 +18,7 @@ class SimAnnealing(HillClimber):
         self.t = temperatuur
 
     # Simulated Annealing algoritme 
-    def Simulate_Annealing(self, iteraties):
+    def run(self, iteraties):
 
         for i in range(iteraties):
             # select random traject uit de state en een random traject uit alle mogelijke trajecten

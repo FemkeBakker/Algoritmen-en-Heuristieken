@@ -9,7 +9,7 @@ import random
 # import class functions from the class files
 from classes.station import Station
 from classes.Graph import Graph
-from Visualisatie.plot import create_plot
+from Visualisatie.plot import create_boxplot, create_plot
 from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
@@ -68,11 +68,14 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 random_sol_holland = random_solution(alle_trajecten_holland, 7)
 random_sol_nl = random_solution(alle_trajecten_nl, 20)
 
+create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland") 
+
+
 # calculate and print scores from random/baseline algorithm for both holland and NL datasets
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-# print("Baseline score Holland: ",random_score_holland)
+print("Baseline score Holland: ",random_score_holland)
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
@@ -84,7 +87,7 @@ hill_climber.run(200)
 # run Simulated Annealing
 sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
 # print(sim_annealing.score_state)
-sim_annealing.Simulate_Annealing(2000)
+sim_annealing.run(2000)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy
@@ -95,9 +98,22 @@ sim_annealing.Simulate_Annealing(2000)
 
  
 # beginstate = {'Greedy' : random_sol_holland} 
+# iteraties = [10, 100, 200]
+iteraties = [2000]
+# iteraties = [200, 500, 1000, 2000,5000, 8000, 10000, 12000, 14000, 15000]
+#experiment = generate_experiment(HillClimber, iteraties, 150, alle_trajecten_holland, 7, "Holland", G_holland)
+#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 7, "Holland", G_holland)
+#experiment.run_experiment()
 
-experiment = generate_experiment(HillClimber, [1, 10], 2, alle_trajecten_holland, 7, G_holland)
-# experiment.run_experiment()
+#plot data in boxplot
+data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie2000.csv')
+data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
+# creëer tuple voor data argument
+data = (data_HC, data_SA)
+#print(data)
+create_boxplot(data,'Holland')
+
+# print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
 # create instance of Greedy Constructive for holland
 # greedy_constructive_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
