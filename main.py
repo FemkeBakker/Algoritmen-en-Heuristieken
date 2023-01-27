@@ -26,6 +26,7 @@ StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 # save stations and connections from holland dataframes in lists
 stations_holland = list(StationsHolland['station'])
 connecties_holland = [(station1, station2) for station1, station2 in zip(ConnectiesHolland['station1'], ConnectiesHolland['station2'])]
+# print(connecties_holland)
 
 # load data deel 2 - Heel NL
 ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
@@ -95,7 +96,7 @@ sim_annealing.run(2000)
 # print greedy trajecten en score holland
 # print(greedy_holland.kies_trajecten())
 
-
+ 
 # beginstate = {'Greedy' : random_sol_holland} 
 # iteraties = [10, 100, 200]
 iteraties = [2000]
@@ -121,10 +122,11 @@ iteraties = [2000]
 
 # create instance of Greedy Constructive for holland
 # greedy_constructive_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-# print greedy constructive trajecten en score holland
+# print greedy constructive trajecten and score for holland
 # print(greedy_constructive_holland.kies_trajecten())
 
 # create instance of Greedy Iterative for holland
-# greedy_iterative_holland = Greedy_Iterative()
+greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
 # print greedy iterative trajecten en score holland
-# print(greedy_iterative_holland.kies_trajecten())
+print(greedy_iterative_holland.kies_trajecten())
+# print(connecties_holland)
