@@ -109,7 +109,7 @@ iteraties = [2000]
 data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie2000.csv')
 data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
 # creëer tuple voor data argument
-data = (data_HC, data_SA)
+data = data_HC.iloc[:,1], data_SA.iloc[:,1]
 #print(data)
 create_boxplot(data,'Holland')
 
@@ -123,5 +123,5 @@ create_boxplot(data,'Holland')
 # create instance of Greedy Iterative for holland
 greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
 # print greedy iterative trajecten en score holland
-print(greedy_iterative_holland.kies_trajecten())
+#print(greedy_iterative_holland.kies_trajecten())
 # print(connecties_holland)
