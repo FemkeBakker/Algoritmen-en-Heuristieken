@@ -21,6 +21,7 @@ from experiment.generate_experiment import *
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
+print(ConnectiesHolland)
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
 # save stations and connections from holland dataframes in lists
@@ -127,6 +128,9 @@ iteraties = [2000]
 
 # create instance of Greedy Iterative for holland
 greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
+greddu = greedy_iterative_holland.kies_trajecten()
 # print greedy iterative trajecten en score holland
 print(greedy_iterative_holland.kies_trajecten())
+print(len(greedy_iterative_holland.kies_trajecten()))
+# print(calculate_score(G_holland, greddu))
 # print(connecties_holland)
