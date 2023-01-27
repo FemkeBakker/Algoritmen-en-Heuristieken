@@ -105,12 +105,17 @@ iteraties = [2000]
 #experiment.run_experiment()
 
 #plot data in boxplot
-data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie2000.csv')
-data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
-# creëer tuple voor data argument
-data = (data_HC, data_SA)
-#print(data)
-create_boxplot(data,'Holland')
+# data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie2000.csv')
+# data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
+
+# data = pd.DataFrame(columns=['HillClimber', 'SimulatedAnnealing'])
+# data['HillClimber'] = list(data_HC['eind_score'])
+# data['SimulatedAnnealing'] = list(data_SA['eind_score'])
+# # data['SimulatedAnnealing'] = data_SA['eind_score'].values()
+# # creëer tuple voor data argument
+# # data = (data_HC, data_SA)
+# #print(data)
+# create_boxplot(data,'Holland')
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
