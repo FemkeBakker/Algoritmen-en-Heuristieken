@@ -79,9 +79,9 @@ print("Baseline score Holland: ",random_score_holland)
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
-hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
+# hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
 # print(hill_climber.score_state)
-hill_climber.run(200)
+# hill_climber.run(200)
 # print(hill_climber.score_state)
 
 # run Simulated Annealing
@@ -90,21 +90,62 @@ sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holla
 sim_annealing.run(2000)
 # print(sim_annealing.score_state)
 
-# create instance of Greedy
-# greedy_holland = Greedy(alle_trajecten_holland, G_holland, 7)
+# create instance of Greedy Constructive Holland
+greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
-# print greedy trajecten en score holland
-# print(greedy_holland.kies_trajecten())
+# create instance of Greedy Constructive NL
+greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
+greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
 
- 
-# beginstate = {'Greedy' : random_sol_holland} 
 
-# iteraties = [200, 500]
-# experiment = generate_experiment(HillClimber, iteraties, 50, alle_trajecten_nl, 20, "joe", G_nederland)
+# ----------- Experiment Hill-Climber -------------------#
 
-# experiment = generate_experiment(HillClimber, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland)
+iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+experiment_count = 150
+holland_aantal_trajecten = 7
+nl_aantal_trajecten = 20
 
+# 7 langste trajecten in Holland
+# copy_alle_trajecten_holland = alle_trajecten_holland.copy()
+# langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
+
+# 20 langste trajecten in NL
+# copy_alle_trajecten_nl = alle_trajecten_nl.copy()
+# langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
+
+# Greedy constructive Holland
+# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+
+# Greedy constructive Nederland
+# greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, nl_aantal_trajecten)
+# greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+
+# Random beginstate - Holland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland)
 # experiment.run_experiment()
+
+# Random beginstate - Nederland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland)
+# experiment.run_experiment()
+
+# 7 langste trajecten beginstate - Holland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
+# experiment.run_experiment()
+
+# 7 langste trajecten beginstate - Nederland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"7langste":langste_trajecten_nl})
+# experiment.run_experiment()
+
+# Constructieve Greedy beginste - Holland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"Greedy_con":greedy_con_holland_solution})
+# experiment.run_experiment()
+
+# Constructieve Greedy beginste - Nederland
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"Greedy_con":greedy_con_nl_solution})
+# experiment.run_experiment()
+
 
 #plot data in boxplot
 # data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie1000.csv')

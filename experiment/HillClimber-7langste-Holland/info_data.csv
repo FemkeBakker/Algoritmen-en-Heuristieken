@@ -1,0 +1,2 @@
+iteratie,mean_beginscore,mean_eindscore,max,min,single_runtime,tot_runtime,best_solution
+3,1654.0,1654.0,1654.0,1654.0,0.0020062923431396484,0.0031518936157226562,"[['Alkmaar', 'Den Helder'], ['Alkmaar', 'Hoorn'], ['Amsterdam Zuid', 'Amsterdam Sloterdijk'], ['Den Haag Centraal', 'Gouda'], ['Dordrecht', 'Rotterdam Centraal'], ['Gouda', 'Alphen a/d Rijn'], ['Haarlem', 'Beverwijk']]"
