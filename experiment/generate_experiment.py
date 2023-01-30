@@ -8,7 +8,7 @@ import time
 
 
 class generate_experiment():
-    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random'):
+    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random', temperatuur = 0):
         self.algorithm = algorithm # De class van het algoritme dat gerund moet worden. 
         self.iteraties = iteraties # Lijst met de iteraties die getest worden.
         self.experiment_count = experiment_count # Aantal keer een iteratie getest wordt.
@@ -17,6 +17,9 @@ class generate_experiment():
         self.graaf = G # Graaf met alle stations en connecties.
         self.beginstate = beginstate # Standaard is random. Andere beginstates -> is een dict met de naam van de beginstate als key en de trajecten als value. Ex: {"Greedy":state}
         self.deel = deel # String met de naam van het deel, is of "Holland" of "Nederland".
+        self.tempratuur = temperatuur # Tempreratuur parameter voor simulated annealing.
+        self.tot_beginscore = dict() # Dict van de totale beginscores van alle iteraties. Wordt gebruikt om gemiddelde beginscore van een iteratie te berekenen. 
+        self.best_solution = dict() # Dict met de iteraties als keys en de beste oplossing van die iteratie als value.
 
     def generate_beginstate(self):
         """
@@ -29,6 +32,18 @@ class generate_experiment():
             beginstate = list(self.beginstate.values())[0]
         return beginstate
 
+    def get_best_solution(self, iteratie):
+        """
+        Functie die er voor zorgt dat het traject met de hoogste score wordt opgeslagen. 
+        """
+        eind_score = self.algorithm_object.score_state
+
+        if iteratie not in list(self.best_solution.keys()):
+            self.best_solution[iteratie] = (eind_score, self.algorithm_object.state)
+
+        elif self.best_solution[iteratie][0] < eind_score:
+            self.best_solution[iteratie] = (eind_score, self.algorithm_object.state)
+        
     def calculate_score(self, beginstate, iteratie):
         """
         Functie berekent de score van de beginstate en de score van de uiteindelijk oplossing. 
@@ -44,6 +59,10 @@ class generate_experiment():
 
         # Bereken nieuwe score
         eind_score = self.algorithm_object.score_state
+
+        # set best traject
+        self.get_best_solution(iteratie)
+            
 
         return begin_score, eind_score 
 
@@ -73,10 +92,21 @@ class generate_experiment():
             # get runtime of running algorithm one time
             if i == 0:
                 single_runtime, begin_score, eind_score = self.single_runtime(beginstate, iteratie)
-                scores.append((begin_score, eind_score))
+
+                # initialize key, sla huidige totaal van beginscore op
+                self.tot_beginscore[iteratie] = begin_score
+
+                # # initialize key, sla beste traject op
+                # self.best_traject[iteratie] = 
 
             else:
-                scores.append(self.calculate_score(beginstate, iteratie))
+                begin_score, eind_score = self.calculate_score(beginstate, iteratie)
+
+                # add to key, sla huidige totaal van beginscore op
+                self.tot_beginscore[iteratie] += begin_score
+
+            
+            scores.append((begin_score, eind_score))
 
         # calculate runtime of total testing of the iteration
         end_time_tot = time.time()-start_time_tot
@@ -112,17 +142,19 @@ class generate_experiment():
 
         info_data_list = []
         info_data_list.append(iteratie)
+        info_data_list.append((self.tot_beginscore[iteratie]/self.experiment_count))
         info_data_list.append(data["eind_score"].mean())
         info_data_list.append(data['eind_score'].max())
         info_data_list.append(data['eind_score'].min())
         info_data_list.append(single_runtime)
         info_data_list.append(tot_runtime)
+        info_data_list.append(self.best_solution[iteratie][1])
         return(info_data_list)
 
     def create_info_data_csv(self):
         # create DataFrame from data about the mean, max and min of all the iterations and save in csv
 
-        info_data = pd.DataFrame(self.info_data_list, columns=["iteratie",'mean', 'max', 'min', 'single_runtime', "tot_runtime"])
+        info_data = pd.DataFrame(self.info_data_list, columns=["iteratie",'mean_beginscore', "mean_eindscore", 'max', 'min', 'single_runtime', "tot_runtime", "best_solution"])
         path = self.create_directory()
         file = "{}/info_data.csv".format(path, index=False)
         info_data.to_csv(file, index = False)
