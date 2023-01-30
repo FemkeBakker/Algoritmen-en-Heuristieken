@@ -21,7 +21,6 @@ from experiment.generate_experiment import *
 
 # load data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
-print(ConnectiesHolland)
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
 # save stations and connections from holland dataframes in lists
@@ -99,24 +98,18 @@ sim_annealing.run(2000)
 
  
 # beginstate = {'Greedy' : random_sol_holland} 
-# iteraties = [10, 100, 200]
-iteraties = [2000]
-# iteraties = [200, 500, 1000, 2000,5000, 8000, 10000, 12000, 14000, 15000]
-#experiment = generate_experiment(HillClimber, iteraties, 150, alle_trajecten_holland, 7, "Holland", G_holland)
-#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 7, "Holland", G_holland)
-#experiment.run_experiment()
+
+iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+experiment = generate_experiment(HillClimber, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland)
+
+experiment.run_experiment()
 
 #plot data in boxplot
-# data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie2000.csv')
-# data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
-
-# data = pd.DataFrame(columns=['HillClimber', 'SimulatedAnnealing'])
-# data['HillClimber'] = list(data_HC['eind_score'])
-# data['SimulatedAnnealing'] = list(data_SA['eind_score'])
-# # data['SimulatedAnnealing'] = data_SA['eind_score'].values()
+# data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie1000.csv')
+# data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2s000.csv')
 # # creëer tuple voor data argument
-# # data = (data_HC, data_SA)
-# #print(data)
+# data =data_HC.iloc[:,1], data_SA.iloc[:,1]
+# print(data)
 # create_boxplot(data,'Holland')
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
@@ -130,7 +123,5 @@ iteraties = [2000]
 greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
 greddu = greedy_iterative_holland.kies_trajecten()
 # print greedy iterative trajecten en score holland
-print(greedy_iterative_holland.kies_trajecten())
-print(len(greedy_iterative_holland.kies_trajecten()))
-# print(calculate_score(G_holland, greddu))
+#print(greedy_iterative_holland.kies_trajecten())
 # print(connecties_holland)
