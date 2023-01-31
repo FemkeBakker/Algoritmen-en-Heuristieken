@@ -47,6 +47,7 @@ def create_boxplot(data_, deel, xas, x_ticklabels, title):
     bp.set(xlabel=xas, ylabel="Score")
     bp.set_xticklabels(x_ticklabels)
     bp= plt.savefig('Visualisatie/boxplot{}.png'.format(deel))
+    plt.close()
     return bp
 
 def generate_data(iteraties, path):

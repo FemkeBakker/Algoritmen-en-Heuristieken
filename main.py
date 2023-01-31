@@ -76,7 +76,6 @@ create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland")
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-print("Baseline score Holland: ",random_score_holland)
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
@@ -146,10 +145,35 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # experiment.run_experiment()
 
 # ------- Visualisatie Experiment -------- #
+iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+
+# Plot HillClimber met Random als beginstate in Holland
+data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
+create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
+
+# Plot HillClimber met Random als beginstate in Nederland
+data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
+create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland')
 
 # Plot HillClimber met 7langste trajecten als beginstate in Holland
-data = generate_data(iteraties, "experiment\HillClimver-7langste-Holland\iteratie")
-create_boxplot(data,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecte ')
+data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
+create_boxplot(data_Hol,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Holland')
+
+# Plot HillClimber met 7langste trajecten als beginstate in Nederland
+data_NL = generate_data(iteraties, "experiment\HillClimber-7langste-Nederland\iteratie")
+create_boxplot(data_NL,'7langste_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Nederland')
+
+# Plot HillClimber met Greedy Constructive als beginstate in Holland
+data_Hol = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Holland\iteratie")
+create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Holland')
+
+# Plot HillClimber met Greedy Constructive als beginstate in Nederland
+data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
+create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
+
+
+
+
 
 
 
@@ -168,9 +192,9 @@ HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie1500
 data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
 
 
-data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
+# data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
 
-create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
+# create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
