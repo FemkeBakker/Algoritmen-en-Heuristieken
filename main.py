@@ -76,10 +76,7 @@ create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland")
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-<<<<<<< Updated upstream
-=======
 # print("Baseline score Holland: ",random_score_holland)
->>>>>>> Stashed changes
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
@@ -93,21 +90,12 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
-<<<<<<< Updated upstream
-# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
-
-# create instance of Greedy Constructive NL
-# greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
-# greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
-=======
 #greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 #greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
 # create instance of Greedy Constructive NL
 #greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
 #greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
->>>>>>> Stashed changes
 
 
 # ----------- Experiment Hill-Climber -------------------#
@@ -142,14 +130,10 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # experiment.run_experiment()
 
 "7 langste trajecten beginstate - Holland"
-experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
-experiment.run_experiment()
+# experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
+# experiment.run_experiment()
 
-<<<<<<< Updated upstream
 "7 langste trajecten beginstate - Nederland"
-=======
-# 7 langste trajecten beginstate - Nederland
->>>>>>> Stashed changes
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"7langste":langste_trajecten_nl})
 # experiment.run_experiment()
 
@@ -164,7 +148,6 @@ experiment.run_experiment()
 # ------- Visualisatie Experiment -------- #
 iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 
-<<<<<<< Updated upstream
 # Plot HillClimber met Random als beginstate in Holland
 data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
 create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
@@ -195,42 +178,40 @@ create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillC
 
 
 
-" Vergelijking algoritmes Holland"
-HC_7lan_hol = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie1000.csv')
-# HC_Greedy_con_hol = pd.read_csv('experiment\HillClimber-Greedy_con-Holland\iteratie1000.csv')
-HC_random_hol = pd.read_csv('experiment\HillClimber-random-Holland\iteratie8000.csv')
-# simulated annealing komt er nog bij
-data = HC_7lan_hol.iloc[:,1], HC_random_hol.iloc[:,1]
+# " Vergelijking algoritmes Holland"
+# HC_7lan_hol = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie1000.csv')
+# # HC_Greedy_con_hol = pd.read_csv('experiment\HillClimber-Greedy_con-Holland\iteratie1000.csv')
+# HC_random_hol = pd.read_csv('experiment\HillClimber-random-Holland\iteratie8000.csv')
+# # simulated annealing komt er nog bij
+# data = HC_7lan_hol.iloc[:,1], HC_random_hol.iloc[:,1]
 
-"Vergelijking algoritmes Nederland"
-HC_7lan_nl = pd.read_csv('experiment\HillClimber-7langste-Nederland\iteratie15000.csv')
-# HC_Greedy_con_nl = pd.read_csv('experiment\HillClimber-Greedy_con-Nederland\iteratie1000.csv')
-HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie15000.csv')
-# simulated annealing komt er nog bij
-data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
+# "Vergelijking algoritmes Nederland"
+# HC_7lan_nl = pd.read_csv('experiment\HillClimber-7langste-Nederland\iteratie15000.csv')
+# # HC_Greedy_con_nl = pd.read_csv('experiment\HillClimber-Greedy_con-Nederland\iteratie1000.csv')
+# HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie15000.csv')
+# # simulated annealing komt er nog bij
+# data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
 
 
 # data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
 
 # create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
-=======
 # --------------- Simulated Annealing ------------------ #
 
-iteraties = [20000]
-experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland)
+# iteraties = [20000]
+# experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland)
 
 
 
-temp = [0.1, 1, 5, 50]
-#for i in temp:
-#    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland, 'random', temperatuur=i)
-#   experiment.run_experiment()
+# temp = [0.1, 1, 5, 50]
+# #for i in temp:
+# #    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland, 'random', temperatuur=i)
+# #   experiment.run_experiment()
 
-data = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+# data = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
 
-#print(data)
-create_boxplot(data,'SA, Nederland', 'temp', temp, 'Simulated Annealing')
->>>>>>> Stashed changes
+# #print(data)
+# create_boxplot(data,'SA, Nederland', 'temp', temp, 'Simulated Annealing')
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
