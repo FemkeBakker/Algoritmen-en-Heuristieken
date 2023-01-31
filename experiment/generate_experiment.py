@@ -8,7 +8,7 @@ import time
 
 
 class generate_experiment():
-    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random', temperatuur = 0):
+    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random', temperatuur = 1):
         self.algorithm = algorithm # De class van het algoritme dat gerund moet worden. 
         self.iteraties = iteraties # Lijst met de iteraties die getest worden.
         self.experiment_count = experiment_count # Aantal keer een iteratie getest wordt.

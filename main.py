@@ -9,7 +9,7 @@ import random
 # import class functions from the class files
 from classes.station import Station
 from classes.Graph import Graph
-from Visualisatie.plot import create_boxplot, create_plot
+from Visualisatie.plot import create_boxplot, create_plot, generate_data
 from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
@@ -79,15 +79,21 @@ print("Baseline score Holland: ",random_score_holland)
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
+<<<<<<< Updated upstream
 # hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
 # print(hill_climber.score_state)
 # hill_climber.run(200)
+=======
+#hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
+# print(hill_climber.score_state)
+#hill_climber.run(200)
+>>>>>>> Stashed changes
 # print(hill_climber.score_state)
 
 # run Simulated Annealing
-sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
+#sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
 # print(sim_annealing.score_state)
-sim_annealing.run(2000)
+#sim_annealing.run(2000)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
@@ -134,6 +140,7 @@ nl_aantal_trajecten = 20
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
 # experiment.run_experiment()
 
+<<<<<<< Updated upstream
 # 7 langste trajecten beginstate - Nederland
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"7langste":langste_trajecten_nl})
 # experiment.run_experiment()
@@ -154,6 +161,18 @@ nl_aantal_trajecten = 20
 # data =data_HC.iloc[:,1], data_SA.iloc[:,1]
 # print(data)
 # create_boxplot(data,'Holland')
+=======
+
+iteraties = [200,500, 1000, 2000, 5000, 10000, 15000]
+# experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland)
+#
+# experiment.run_experiment()
+
+data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
+
+print(data)
+create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
+>>>>>>> Stashed changes
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
@@ -163,8 +182,8 @@ nl_aantal_trajecten = 20
 # print(greedy_constructive_holland.kies_trajecten())
 
 # create instance of Greedy Iterative for holland
-greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
-greddu = greedy_iterative_holland.kies_trajecten()
+#greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
+#greddu = greedy_iterative_holland.kies_trajecten()
 # print greedy iterative trajecten en score holland
 #print(greedy_iterative_holland.kies_trajecten())
 # print(connecties_holland)
