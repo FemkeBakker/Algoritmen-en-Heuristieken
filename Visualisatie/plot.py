@@ -41,9 +41,9 @@ def create_plot(trajecten, df_stations, deel):
     return None
 
 # maak boxplot van 2 algoritmen
-def create_boxplot(data, deel):
-    bp = sns.boxplot(data, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind')
+def create_boxplot(data_, deel):
+    bp = sns.boxplot(data=data_, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind')
     bp.set(xlabel="Algoritme", ylabel="Score")
-    bp.set_xticklabels(['Hill Climber', 'Simulated Annealing'])
+    bp.set_xticklabels(['Hill Climber', 'Simulated Annealing', '7langste'])
     bp= plt.savefig('Visualisatie/boxplot{}.png'.format(deel))
     return bp

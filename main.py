@@ -5,6 +5,7 @@ import pandas as pd
 import networkx as nx
 import folium
 import random
+import numpy as np
 
 # import class functions from the class files
 from classes.station import Station
@@ -91,12 +92,12 @@ sim_annealing.run(2000)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
-greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
 # create instance of Greedy Constructive NL
-greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
-greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+# greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
+# greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
 
 
 # ----------- Experiment Hill-Climber -------------------#
@@ -107,53 +108,77 @@ holland_aantal_trajecten = 7
 nl_aantal_trajecten = 20
 
 # 7 langste trajecten in Holland
-# copy_alle_trajecten_holland = alle_trajecten_holland.copy()
-# langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
+copy_alle_trajecten_holland = alle_trajecten_holland.copy()
+langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
 
 # 20 langste trajecten in NL
-# copy_alle_trajecten_nl = alle_trajecten_nl.copy()
-# langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
+copy_alle_trajecten_nl = alle_trajecten_nl.copy()
+langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
 
-# Greedy constructive Holland
+"Greedy constructive Holland"
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
-# Greedy constructive Nederland
+"Greedy constructive Nederland"
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, nl_aantal_trajecten)
 # greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
 
-# Random beginstate - Holland
+"Random beginstate - Holland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland)
 # experiment.run_experiment()
 
-# Random beginstate - Nederland
+"Random beginstate - Nederland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland)
 # experiment.run_experiment()
 
-# 7 langste trajecten beginstate - Holland
+"7 langste trajecten beginstate - Holland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
 # experiment.run_experiment()
 
-# 7 langste trajecten beginstate - Nederland
+"7 langste trajecten beginstate - Nederland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"7langste":langste_trajecten_nl})
 # experiment.run_experiment()
 
-# Constructieve Greedy beginste - Holland
+"Constructieve Greedy beginste - Holland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"Greedy_con":greedy_con_holland_solution})
 # experiment.run_experiment()
 
-# Constructieve Greedy beginste - Nederland
+"Constructieve Greedy beginste - Nederland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"Greedy_con":greedy_con_nl_solution})
 # experiment.run_experiment()
 
+# ------- Visualisatie Experiment -------- #
+
+" Vergelijking algoritmes Holland"
+HC_7lan_hol = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie1000.csv')
+# HC_Greedy_con_hol = pd.read_csv('experiment\HillClimber-Greedy_con-Holland\iteratie1000.csv')
+HC_random_hol = pd.read_csv('experiment\HillClimber-random-Holland\iteratie8000.csv')
+data = HC_7lan_hol.iloc[:,1], HC_random_hol.iloc[:,1]
+
+"Vergelijking algoritmes Nederland"
+HC_7lan_nl = pd.read_csv('experiment\HillClimber-7langste-Nederland\iteratie15000.csv')
+# HC_Greedy_con_nl = pd.read_csv('experiment\HillClimber-Greedy_con-Nederland\iteratie1000.csv')
+HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie15000.csv')
+data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
+
+
+
 
 #plot data in boxplot
-# data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie1000.csv')
-# data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2s000.csv')
+data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie1000.csv')
+data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
+data_7l = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie5000.csv')
 # # creëer tuple voor data argument
-# data =data_HC.iloc[:,1], data_SA.iloc[:,1]
+# data = np.array(list(data_HC['eind_score'].values()), list(data_SA['eind_score'].values()))
+
+
+data = data_HC.iloc[:,1], data_SA.iloc[:,1], data_7l.iloc[:,1] 
+# data = pd.DataFrame(columns = ['Hill', 'Sim'])
+# data['Hill'] = data_HC['eind_score']
+# data['Sim'] = data_SA['eind_score']
 # print(data)
-# create_boxplot(data,'Holland')
+boxplot = create_boxplot(data,'Holland')
+print(boxplot)
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
