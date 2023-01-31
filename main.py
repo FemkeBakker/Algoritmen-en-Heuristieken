@@ -76,6 +76,10 @@ create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland")
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
+<<<<<<< Updated upstream
+=======
+# print("Baseline score Holland: ",random_score_holland)
+>>>>>>> Stashed changes
 # print("Baseline score Nederland: ",random_score_nl)
 
 # run Hill Climber
@@ -89,20 +93,29 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
+<<<<<<< Updated upstream
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
 # create instance of Greedy Constructive NL
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
 # greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+=======
+#greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+#greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+
+# create instance of Greedy Constructive NL
+#greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
+#greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+>>>>>>> Stashed changes
 
 
 # ----------- Experiment Hill-Climber -------------------#
 
-iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
-experiment_count = 150
-holland_aantal_trajecten = 7
-nl_aantal_trajecten = 20
+#iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+#experiment_count = 150
+#holland_aantal_trajecten = 7
+#nl_aantal_trajecten = 20
 
 # 7 langste trajecten in Holland
 copy_alle_trajecten_holland = alle_trajecten_holland.copy()
@@ -132,7 +145,11 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"7langste":langste_trajecten_holland})
 # experiment.run_experiment()
 
+<<<<<<< Updated upstream
 "7 langste trajecten beginstate - Nederland"
+=======
+# 7 langste trajecten beginstate - Nederland
+>>>>>>> Stashed changes
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"7langste":langste_trajecten_nl})
 # experiment.run_experiment()
 
@@ -147,6 +164,7 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # ------- Visualisatie Experiment -------- #
 iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 
+<<<<<<< Updated upstream
 # Plot HillClimber met Random als beginstate in Holland
 data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
 create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
@@ -195,8 +213,28 @@ data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
 # data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
 
 # create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
+=======
+# --------------- Simulated Annealing ------------------ #
+
+iteraties = [20000]
+experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland)
+
+
+
+temp = [0.1, 1, 5, 50]
+#for i in temp:
+#    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland, 'random', temperatuur=i)
+#   experiment.run_experiment()
+
+data = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+
+#print(data)
+create_boxplot(data,'SA, Nederland', 'temp', temp, 'Simulated Annealing')
+>>>>>>> Stashed changes
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
+
+# ------------------------------------------------------- #
 
 # create instance of Greedy Constructive for holland
 # greedy_constructive_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)

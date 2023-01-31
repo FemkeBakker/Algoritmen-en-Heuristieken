@@ -9,7 +9,6 @@ from .HillClimber import HillClimber
 
 # maak Simulated Annealing class met HillClimber als parent
 class SimAnnealing(HillClimber):
-
     def __init__(self, beginstate, trajecten, G, temperatuur=1):
         # gebruik init van HillClimber
         super().__init__(beginstate, trajecten, G)
@@ -43,9 +42,7 @@ class SimAnnealing(HillClimber):
                     self.state = new_state
                     self.score_state = new_score
 
-                # update temperatuur
+                # update temperatuur (lineair)
                 self.t = self.t - (self.t0 / iteraties)
-                # print('temperatuur:', self.t) # check
-
 
 

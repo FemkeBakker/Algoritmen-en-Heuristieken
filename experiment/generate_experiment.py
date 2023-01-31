@@ -8,7 +8,7 @@ import time
 
 
 class generate_experiment():
-    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random', temperatuur = 1):
+    def __init__(self, algorithm, iteraties, experiment_count, trajecten, aantal_trajecten, deel, G, beginstate='random', temperatuur=1):
         self.algorithm = algorithm # De class van het algoritme dat gerund moet worden. 
         self.iteraties = iteraties # Lijst met de iteraties die getest worden.
         self.experiment_count = experiment_count # Aantal keer een iteratie getest wordt.
@@ -17,7 +17,7 @@ class generate_experiment():
         self.graaf = G # Graaf met alle stations en connecties.
         self.beginstate = beginstate # Standaard is random. Andere beginstates -> is een dict met de naam van de beginstate als key en de trajecten als value. Ex: {"Greedy":state}
         self.deel = deel # String met de naam van het deel, is of "Holland" of "Nederland".
-        self.tempratuur = temperatuur # Tempreratuur parameter voor simulated annealing.
+        self.temperatuur = temperatuur # Tempreratuur parameter voor simulated annealing.
         self.tot_beginscore = dict() # Dict van de totale beginscores van alle iteraties. Wordt gebruikt om gemiddelde beginscore van een iteratie te berekenen. 
         self.best_solution = dict() # Dict met de iteraties als keys en de beste oplossing van die iteratie als value.
 
@@ -50,6 +50,10 @@ class generate_experiment():
         """
         # Maak een instance aan van de class van het algoritme
         self.algorithm_object = self.algorithm(beginstate, self.trajecten, self.graaf)
+
+        # Overwrite instance van class als het algoritme simulated annealing is, om de temperatuur mee te geven
+        if self.algorithm_object.name == "SimAnnealing":
+            self.algorithm_object = self.algorithm(beginstate, self.trajecten, self.graaf, self.temperatuur)
 
         # Bereken begins score
         begin_score = self.algorithm_object.score_state
@@ -127,15 +131,22 @@ class generate_experiment():
             os.makedirs(path)
         return(path)
 
-    def save_csv(self, data, iteratie):
+    def save_csv(self, data, iteratie, temperatuur):
         """
         Functie zet DataFrame in csv file.
         """
         path = self.create_directory()
 
-        # sla dataframe op in csv
-        file = "{}/iteratie{}.csv".format(path, iteratie)
-        data.to_csv(file, index=False)
+        if self.algorithm_object.name == 'SimAnnealing':
+            # sla dataframe op in csv
+            file = "{}/iteratie{}+temp{}.csv".format(path, iteratie, temperatuur)
+            data.to_csv(file, index=False)
+        else:
+            # sla dataframe op in csv
+            file = "{}/iteratie{}.csv".format(path, iteratie)
+            data.to_csv(file, index=False)
+
+       
 
     def get_info_data(self, iteratie, data, single_runtime, tot_runtime):
         # create list with iteratie, mean, max and min of the iteration
@@ -173,7 +184,7 @@ class generate_experiment():
             self.info_data_list.append(self.get_info_data(iteratie, data, single_runtime, tot_runtime))
 
             # sla de eind en beginscores op in een csv
-            self.save_csv(data, iteratie)
+            self.save_csv(data, iteratie, self.temperatuur)
 
         # maak dataframe van het gemiddelde, max en min van alle iteraties en sla op in csv
         self.create_info_data_csv()
