@@ -10,7 +10,7 @@ import numpy as np
 # import class functions from the class files
 from classes.station import Station
 from classes.Graph import Graph
-from Visualisatie.plot import create_boxplot, create_plot
+from Visualisatie.plot import create_boxplot, create_plot, generate_data
 from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
@@ -81,14 +81,12 @@ print("Baseline score Holland: ",random_score_holland)
 
 # run Hill Climber
 # hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
-# print(hill_climber.score_state)
 # hill_climber.run(200)
 # print(hill_climber.score_state)
 
 # run Simulated Annealing
-sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
-# print(sim_annealing.score_state)
-sim_annealing.run(2000)
+#sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
+#sim_annealing.run(2000)
 # print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
@@ -149,36 +147,30 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 
 # ------- Visualisatie Experiment -------- #
 
+# Plot HillClimber met 7langste trajecten als beginstate in Holland
+data = generate_data(iteraties, "experiment\HillClimver-7langste-Holland\iteratie")
+create_boxplot(data,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecte ')
+
+
+
 " Vergelijking algoritmes Holland"
 HC_7lan_hol = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie1000.csv')
 # HC_Greedy_con_hol = pd.read_csv('experiment\HillClimber-Greedy_con-Holland\iteratie1000.csv')
 HC_random_hol = pd.read_csv('experiment\HillClimber-random-Holland\iteratie8000.csv')
+# simulated annealing komt er nog bij
 data = HC_7lan_hol.iloc[:,1], HC_random_hol.iloc[:,1]
 
 "Vergelijking algoritmes Nederland"
 HC_7lan_nl = pd.read_csv('experiment\HillClimber-7langste-Nederland\iteratie15000.csv')
 # HC_Greedy_con_nl = pd.read_csv('experiment\HillClimber-Greedy_con-Nederland\iteratie1000.csv')
 HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie15000.csv')
+# simulated annealing komt er nog bij
 data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
 
 
+data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
 
-
-#plot data in boxplot
-data_HC = pd.read_csv('experiment\HillClimber-random-Holland\iteratie1000.csv')
-data_SA = pd.read_csv('experiment\SimAnnealing-random-Holland\iteratie2000.csv')
-data_7l = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie5000.csv')
-# # creëer tuple voor data argument
-# data = np.array(list(data_HC['eind_score'].values()), list(data_SA['eind_score'].values()))
-
-
-data = data_HC.iloc[:,1], data_SA.iloc[:,1], data_7l.iloc[:,1] 
-# data = pd.DataFrame(columns = ['Hill', 'Sim'])
-# data['Hill'] = data_HC['eind_score']
-# data['Sim'] = data_SA['eind_score']
-# print(data)
-boxplot = create_boxplot(data,'Holland')
-print(boxplot)
+create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
 # print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
@@ -188,8 +180,8 @@ print(boxplot)
 # print(greedy_constructive_holland.kies_trajecten())
 
 # create instance of Greedy Iterative for holland
-greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
-greddu = greedy_iterative_holland.kies_trajecten()
+#greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
+#greddu = greedy_iterative_holland.kies_trajecten()
 # print greedy iterative trajecten en score holland
 #print(greedy_iterative_holland.kies_trajecten())
 # print(connecties_holland)

@@ -40,10 +40,20 @@ def create_plot(trajecten, df_stations, deel):
 
     return None
 
-# maak boxplot van 2 algoritmen
-def create_boxplot(data_, deel):
-    bp = sns.boxplot(data=data_, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind')
-    bp.set(xlabel="Algoritme", ylabel="Score")
-    bp.set_xticklabels(['Hill Climber', 'Simulated Annealing', '7langste'])
+# maak boxplot
+def create_boxplot(data_, deel, xas, x_ticklabels, title):
+    bp = sns.boxplot(data = data_, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind',  showmeans = True, meanprops = {'marker': 'o', 'markerfacecolor':'white', 'markeredgecolor':"black"})
+    bp.set(title=title)
+    bp.set(xlabel=xas, ylabel="Score")
+    bp.set_xticklabels(x_ticklabels)
     bp= plt.savefig('Visualisatie/boxplot{}.png'.format(deel))
     return bp
+
+def generate_data(iteraties, path):
+    data_tup = tuple()
+    for iteratie in iteraties:
+        # data_tup = (*data_tup, pd.read_csv('experiment\SimAnnealing-random-Nederland\iteratie{}.csv'.format(iteratie)))
+        data_tup = (*data_tup, pd.read_csv("{}{}.csv".format(path,iteratie))['eind_score'])
+
+
+    return data_tup
