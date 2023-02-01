@@ -6,7 +6,7 @@ from Score import *
 import os
 
 
-# function that generates all possible simple paths in graph
+# functie genereert alle mogelijke simple paths
 def generate_all_trajecten(G, time):
     all_paths = list()
     for station1 in G.stations:
@@ -17,7 +17,7 @@ def generate_all_trajecten(G, time):
                     all_paths.append(path)
     return (all_paths)
 
-# function that selects random trajecten from all given trajecten
+# functie selecteert random trajecten uit alle mogelijke trajecten
 def random_solution(trajecten, aantal_trajecten):
     solution = random.sample(trajecten, k = aantal_trajecten)
     return(solution)

@@ -1,6 +1,6 @@
 # import functions
 from Score import *
-from random_solution import *
+from algorithms.random_solution import *
 from connections_paths import *
 
 # libraries

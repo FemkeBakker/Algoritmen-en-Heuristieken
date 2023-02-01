@@ -1,5 +1,5 @@
 from algorithms.HillClimber import HillClimber
-from random_solution import *
+from algorithms.random_solution import *
 from Score import *
 import pandas as pd
 
