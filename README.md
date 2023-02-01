@@ -29,10 +29,15 @@ Main opbouw:
 
 ### Runnen van de code
 De code kan gerund worden door de command: py main.py te runnen. Alles wat gegenereerd wordt is al opgeslagen in de mappen. 
-Er zijn dele van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt. De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
+Er zijn dele van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt en/of het belangrijk is dat er constant met dezelfde waardes gewerkt wordt (zoals bij de random baseline). De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
 
 ### Alle mogelijke trajecten
 Er is voor gekozen om de functie nx.all_simple_paths (uit de networkx library) te gebruiken om alle mogelijke trajecten te generen. Dit zijn NIET daadwerkelijk alle mogelijk trajecten. Aan de functie zit het constraint dat een station niet meer dan 1 keer in een traject kan voorkomen. Hierdoor zijn er 207 mogelijke trajecten in Holland en 2633 mogelijke trajecten in Nederland. 
+
+### Hill Climber
+De manier waarop de Hill Climber kleine aanpassingen doet is door een random traject te selecteren uit de huidige state en deze te vervangen met een random traject uit alle mogelijke trajecten. Er worden dus geen aanpassingen gedaan binnen de trajecten. 
+
+Er worden drie verschillende beginstates van de Hill Climber getest. (1) random beginstate, deze wordt gegenereerd door het gebruik van de random baseline. (2) 7 langste trajecten, de 7 langste trajecten uit alle mogelijke trajecten worden geselecteerd. (3) Greedy constructive, de oplossing die uit het Greedy constructive algoritme komt (deze is altijd het zelfde). 
 
 ####
 Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
