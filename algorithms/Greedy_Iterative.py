@@ -6,6 +6,23 @@ from connections_paths import *
 # libraries
 import networkx as nx
 
+
+""" PSEUDO-CODE VOOR ITERATIVE 'GREEDY' ALGORITME """
+# Initialiseer lege lijst 'gekozen_trajecten' om gekozen routes op te slaan
+# Initialiseer set 'unieke_verbindingen' om verbindingen die al gebruikt zijn op te slaan
+# Herhaal stap 4 tot 7 zolang de lengte van 'gekozen_trajecten' kleiner is dan 7:
+#   Initialiseer lege lijst 'traject' om huidige route op te slaan
+#   Initialiseer variabele 'totale_Min' op 0
+#   Herhaal volgende stap zolang 'totale_Min' kleiner of gelijk is aan 'self.max_Min' EN 'verbindingen' niet leeg is:
+#       Initialiseer variabele 'volgende_verbinding' als de verbinding met de laagste Min waarde die nog niet in 'unieke_verbindingen' voorkomt en aansluitend is op de laatst gekozen verbinding in 'traject'
+#       Voeg 'volgende_verbinding' toe aan 'traject'
+#       Voeg 'volgende_verbinding' toe aan 'unieke_verbinding'
+#       Voeg 'volgende_verbinding' Min waarde toe aan 'totale_Min'
+#       Verwijder 'volgende_verbinding' uit 'verbindingen'
+#   Als 'traject' niet leeg is, voeg 'traject' toe aan 'gekozen_trajecten'
+# Return 'gekozen_trajecten'
+
+
 """ Versie 1: verbindingen gaan beide kanten op """
 class Greedy_Iterative:
     def __init__(self, G, alle_stations, alle_connecties, max_trajecten, max_Min):
