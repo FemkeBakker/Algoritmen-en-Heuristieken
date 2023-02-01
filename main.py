@@ -46,35 +46,6 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 """ Random Baseline Nederland """
 # random_to_csv(alle_trajecten_nl, 7, G_nederland, "Nederland", 150)
 
-
-<<<<<<< Updated upstream
-=======
-# example input for plot visualization
-trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"], 
-["Amsterdam Sloterdijk", "Amsterdam Centraal", "Amsterdam Amstel", "Amsterdam Zuid", "Schiphol Airport"], 
-["Rotterdam Alexander", "Gouda", "Alphen a/d Rijn", "Leiden Centraal"," Schiphol Airport", "Amsterdam Zuid"]]
-
-# creates plot of trajecten, return None, map can be found in Visualisatie/map.html
-#create_plot(trajecten, StationsHolland, "Holland") 
-#create_plot(trajecten, StationsNationaal, "NL")
-
-# generate all possible simple paths in graph
-alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
-alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
-
-# get random solution, chosen from all possible simple paths in graph
-random_sol_holland = random_solution(alle_trajecten_holland, 7)
-random_sol_nl = random_solution(alle_trajecten_nl, 20)
-
-
-#create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland") 
-
-
-# calculate and print scores from random/baseline algorithm for both holland and NL datasets
-random_score_holland = calculate_score(G_holland, random_sol_holland)
-random_score_nl = calculate_score(G_nederland, random_sol_nl)
-
->>>>>>> Stashed changes
 # --------- Greedy Constructive algoritme ----------- #
 # create instance of Greedy Constructive Holland
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
@@ -223,50 +194,14 @@ best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_ran
 #data_SA_temp = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
 #create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 #iteraties = [20000]
-# temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
+temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
 #for i in temp:
 #    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest2", G_nederland, 'random', temperatuur=i)
 #    experiment.run_experiment()
 
-# data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-# create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
-=======
-#   "Vergelijking Holland"
-#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=5)
-#experiment.run_experiment()
-#data_SA_temp = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
-#create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
-
-
-iteraties = [5000, 10000, 15000, 20000]
-temp = [30]
-for i in temp:
-    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 7, "Holland, temp30", G_holland, 'random', temperatuur=30)
-    experiment.run_experiment()
-
-data_SA_hol = generate_data(iteraties, "experiment\SimAnnealing-random-temptest\iteratie")
-create_boxplot(data_SA_hol,'SA_hol, Holland', 'Iteraties', iteraties, 'Simulated Annealing')
->>>>>>> Stashed changes
-=======
-#   "Vergelijking Holland"
-#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=5)
-#experiment.run_experiment()
-#data_SA_temp = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
-#create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
-
-
-iteraties = [5000, 10000, 15000, 20000]
-temp = [30]
-for i in temp:
-    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 7, "Holland, temp30", G_holland, 'random', temperatuur=30)
-    experiment.run_experiment()
-
-data_SA_hol = generate_data(iteraties, "experiment\SimAnnealing-random-temptest\iteratie")
-create_boxplot(data_SA_hol,'SA_hol, Holland', 'Iteraties', iteraties, 'Simulated Annealing')
->>>>>>> Stashed changes
+data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
 
 #print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
