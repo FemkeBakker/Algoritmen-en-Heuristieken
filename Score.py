@@ -1,8 +1,6 @@
 # import libraries
-import pandas as pd
 from random import sample
 import networkx as nx
-import random
 
 # import functions
 from algorithms.random_solution import *
