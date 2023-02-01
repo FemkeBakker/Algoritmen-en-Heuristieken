@@ -36,6 +36,9 @@ Er is voor gekozen om de functie nx.all_simple_paths (uit de networkx library) t
 #### Baseline
 Er worden random trajecten geselecteerd uit alle mogelijke trajecten. Dubbele trajecten worden niet toegestaan.
 
+#### Greedy
+Greedy (constructief): In dit algoritme wordt eerst naar alle mogelijke trajecten gekeken en hieruit de langste gekozen, omdat deze zo veel mogelijk verbindingen meeneemt en zo wordt p (en daarmee de score) verhoogd. In het geval dat er meerdere trajecten voorkomen met de maximale lengte, wordt er vervolgens gekeken naar de Min van de trajecten en wordt het langste traject met de kleinste waarde voor Min gekozen. Vervolgens word dit proces herhaald, maar worden trajecten die verbindingen bevatten die al in de gekozen traject(en) voorkomt niét meer meegenomen, om zo zoveel mogelijk verbindingen mee te nemen en p te maximaliseren, terwijl Min als tweede factor wordt geminimaliseerd. Dit proces wordt herhaald tot het maximum van T (max aantal trajecten) wordt bereikt of tot er geen trajecten meer zijn om uit te kiezen. Ten slotte wordt de score van de gekozen trajecten berekend. 
+
 #### Hill Climber
 De manier waarop de Hill Climber kleine aanpassingen doet is door een random traject te selecteren uit de huidige state en deze te vervangen met een random traject uit alle mogelijke trajecten. Er worden dus geen aanpassingen gedaan binnen de trajecten. 
 
