@@ -8,12 +8,11 @@ import random
 import numpy as np
 
 # import class functions from the class files
-# from classes.station import Station
 from classes.Graph import Graph
 from Visualisatie.plot import *
 from algorithms.random_solution import *
 from Score import *
-from algorithms.HillClimber import HillClimber
+from algorithms.HillClimber import HillClimber 
 from algorithms.Greedy_Constructive import *
 from algorithms.Greedy_Iterative import Greedy_Iterative
 from algorithms.SimAnnealing import SimAnnealing
@@ -65,7 +64,7 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 stations_holland = list(StationsHolland['station'])
 connecties_holland = [(station1, station2) for station1, station2 in zip(ConnectiesHolland['station1'], ConnectiesHolland['station2'])]
 
-# Bereken Greedy iterative score in Holland
+# Greedy iterative Holland
 greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
 greedy_iterative_holland_solution = greedy_iterative_holland.kies_trajecten()
 # greedy_iterative_holland_score = calculate_score(G_holland, greedy_iterative_holland_solution)
@@ -74,7 +73,7 @@ greedy_iterative_holland_solution = greedy_iterative_holland.kies_trajecten()
 stations_nationaal = list(StationsNationaal['station'])
 connecties_nationaal = [(station1, station2) for station1, station2 in zip(ConnectiesNationaal['station1'], ConnectiesNationaal['station2'])]
 
-# Bereken Greedy iterative score in Nederland
+# Greedy iterative Nederland
 greedy_iterative_nl = Greedy_Iterative(G_nederland, stations_nationaal, connecties_nationaal, 20, 180)
 greedy_iterative_nl_solution = greedy_iterative_nl.kies_trajecten()
 # greedy_iterative_nl_score = calculate_score(G_holland, greedy_iterative_nl_solution)
@@ -94,14 +93,6 @@ langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, rever
 copy_alle_trajecten_nl = alle_trajecten_nl.copy()
 langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
 
-"Greedy constructive Holland"
-# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
-
-"Greedy constructive Nederland"
-# greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, nl_aantal_trajecten)
-# greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
-
 "Random beginstate - Holland"
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland)
 # experiment.run_experiment()
@@ -120,7 +111,7 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 
 "Constructieve Greedy beginste - Holland"
 
-# Laad Greedy oplossing uit csv
+# Laad Greedy oplossing Holland uit csv
 greedy_con_holland_solution = pd.read_csv("experiment/greedy/Holland.csv")['solution'].values[0]
 greedy_con_holland_solution = ast.literal_eval(greedy_con_holland_solution)
 
@@ -129,7 +120,7 @@ greedy_con_holland_solution = ast.literal_eval(greedy_con_holland_solution)
 
 "Constructieve Greedy beginste - Nederland"
 
-# Laad Greedy oplossing uit csv
+# Laad Greedy oplossing Nederland uit csv
 greedy_con_nl_solution = pd.read_csv("experiment/greedy/Nederland.csv")['solution'].values[0]
 greedy_con_nl_solution = ast.literal_eval(greedy_con_nl_solution)
 
