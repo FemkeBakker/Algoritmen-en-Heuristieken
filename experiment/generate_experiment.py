@@ -1,4 +1,3 @@
-from algorithms.HillClimber import HillClimber
 from algorithms.random_solution import *
 from Score import *
 import pandas as pd

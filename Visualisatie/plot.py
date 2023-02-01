@@ -1,6 +1,4 @@
 # Import libraries
-# Benodigd: pandas, folium, seaborn
-
 import pandas as pd
 import folium
 import random

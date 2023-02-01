@@ -3,9 +3,7 @@ import random
 import pandas as pd
 import os
 
-
 from Score import *
-
 
 # functie genereert alle mogelijke simple paths
 def generate_all_trajecten(G, time):
