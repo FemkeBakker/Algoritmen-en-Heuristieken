@@ -47,11 +47,18 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 
 
 # --------- Greedy Constructive algoritme ----------- #
+<<<<<<< Updated upstream
 
 """ Greedy Constructive Holland """
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 # greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland")
+=======
+# create instance of Greedy Constructive Holland
+greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+greedy_con_holland_solution, greedy_con_holland_solution_score, greedy_con_holland_solution_runtime  = greedy_contructief_holland.kies_trajecten()
+greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland", greedy_con_holland_solution_runtime)
+>>>>>>> Stashed changes
 
 """ Greedy Constructive Nederland """
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
