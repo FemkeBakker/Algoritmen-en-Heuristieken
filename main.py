@@ -47,7 +47,8 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 
 
 # --------- Greedy Constructive algoritme ----------- #
-# create instance of Greedy Constructive Holland
+
+"""Greedy Constructive Holland"""
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score, greedy_con_holland_solution_runtime  = greedy_contructief_holland.kies_trajecten()
 # greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland", greedy_con_holland_solution_runtime)
@@ -66,7 +67,6 @@ connecties_holland = [(station1, station2) for station1, station2 in zip(Connect
 # Greedy iterative Holland
 greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
 greedy_iterative_holland_solution = greedy_iterative_holland.kies_trajecten()
-# greedy_iterative_holland_score = calculate_score(G_holland, greedy_iterative_holland_solution)
 
 # save stations and connections from national dataframes in lists
 stations_nationaal = list(StationsNationaal['station'])
@@ -75,7 +75,6 @@ connecties_nationaal = [(station1, station2) for station1, station2 in zip(Conne
 # Greedy iterative Nederland
 greedy_iterative_nl = Greedy_Iterative(G_nederland, stations_nationaal, connecties_nationaal, 20, 180)
 greedy_iterative_nl_solution = greedy_iterative_nl.kies_trajecten()
-# greedy_iterative_nl_score = calculate_score(G_holland, greedy_iterative_nl_solution)
 
 # ----------- Experiment Hill-Climber -------------------#
 

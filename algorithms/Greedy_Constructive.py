@@ -8,17 +8,6 @@ import time
 import pandas as pd
 import networkx as nx
 
-# load data Deel 1 - Noord-Holland & Zuid-Holland
-ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
-StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
-
-# load data deel 2 - Heel NL
-ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
-StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
-
-# create Graph instances
-G_holland = Graph(ConnectiesHolland, StationsHolland)
-G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
 """ PSEUDO-CODE VOOR CONSTRUCTIVE 'GREEDY' ALGORITME """
 # neem lijst met alle mogelijke trajecten, plaats in een queue.
