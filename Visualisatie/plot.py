@@ -47,12 +47,17 @@ def create_plot(trajecten, df_stations, deel, naam):
     return None
 
 # Maak boxplot
-def create_boxplot(data_, deel, xas, x_ticklabels, title):
+def create_boxplot(data_, deel, xas, x_ticklabels, title, map):
     bp = sns.boxplot(data = data_, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind',  showmeans = True, meanprops = {'marker': 'o', 'markerfacecolor':'white', 'markeredgecolor':"black"})
     bp.set(title=title)
     bp.set(xlabel=xas, ylabel="Score")
     bp.set_xticklabels(x_ticklabels)
-    bp= plt.savefig('Visualisatie/boxplot{}.png'.format(deel))
+
+    path = "Visualisatie/{}".format(map)
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    bp= plt.savefig('{}/boxplot{}.png'.format(path, deel))
     plt.close()
     return bp
 
@@ -70,12 +75,12 @@ def generate_data_vergelijking_holland():
     HC_greedy = pd.read_csv("experiment/HillClimber-Greedy_con-Holland/iteratie200.csv")['eind_score']
     Greedy_con = pd.read_csv("experiment/greedy/Holland.csv")['eind_score']
     random_baseline = pd.read_csv("experiment/Random_baseline/Holland.csv")['eind_score']
-    # simulated annealing
+    SA = pd.read_csv("experiment/SimAnnealing-random-Holland, temp30/iteratie20000+temp30.csv")['eind_score']
 
     # maak tuple van alle data
-    data = (HC_7, HC_random, HC_greedy, Greedy_con, random_baseline)
+    data = (HC_7, HC_random, HC_greedy, Greedy_con, SA, random_baseline)
     
-    labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "Random"]
+    labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "SA", "Random"]
     return data, labels
 
 # Functie returnt de data en labels van de optimale versies van alle algoritmes in Nederland
