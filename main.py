@@ -172,7 +172,8 @@ HC_random = pd.read_csv("experiment/HillClimber-random-Holland/info_data.csv")
 best_solution_map(HC_random, StationsHolland, 8000, "Holland", "best_HC_random_Holland")
 
 # Kaart van beste oplossing Simulated Annealing met 20000 iteraties en temp=30 in Holland
-
+SA = pd.read_csv("experiment/SimAnnealing-random-Holland, temp30/info_data.csv")
+best_solution_map(SA, StationsHolland, 20000, "Holland", "best_SA_Holland")
 
 # Kaart van beste oplossing Hill Climber met beginstate 7 langste in Nederland
 HC_7 = pd.read_csv("experiment/HillClimber-7langste-Nederland/info_data.csv")
@@ -183,7 +184,8 @@ HC_random = pd.read_csv("experiment/HillClimber-random-Nederland/info_data.csv")
 best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_random_NL")
 
 # Kaart van beste oplossing Simulated Annealing met 20000 iteraties en temp=30 in Nederland
-
+SA = pd.read_csv("experiment/SimAnnealing-random-Holland, temp30/info_data.csv")
+best_solution_map(SA, StationsNationaal, 20000, "Nederland", "best_SA_NL")
 
 
 
