@@ -154,16 +154,10 @@ create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillC
 # --------- Vergelijking algoritmes ---------- #
 
 # Plot alle algoritmes met de optimale waardes voor Holland
-# Alle algoritmes: Greedy constructive, Random Baseline, Simulated Annealing, Hill-Climber
-# Optimaal: [Hill-Climber 7 langste: 10000, Hill-Climber random: 8000, Hill-Climber Greedy: 200, Sim Annealing: 20000 iteraties/5temp]
 data, labels = generate_data_vergelijking_holland()
 create_boxplot(data,'Vergelijking Holland', 'Algoritmes', labels, 'Vergelijking Holland')
 
 # Plot alle algoritmes met de optimale waardes voor Nederland
-# Alle algoritmes: Greedy constructive, Simulated Annealing, Hill-Climber
-# LET OP: er is voor gekozen om de random baseline weg te laten uit het plot. 
-# De random baseline was zo laag dat deze de duidelijkheid van het plot verstoorden.
-# Optimaal: [Hill-Climber 7 langste: 15000, Hill-Climber random: 15000, Hill-Climber Greedy: 200, Sim Annealing: 20000 iteraties/5temp]
 data, labels = generate_data_vergelijking_nl()
 create_boxplot(data,'Vergelijking Nederland', 'Algoritmes', labels, 'Vergelijking Nederland')
 
