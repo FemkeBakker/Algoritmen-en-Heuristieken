@@ -88,6 +88,17 @@ class Greedy_Constructive:
         
         return gekozen_trajecten, score
 
+def greedy_to_csv(score, solution, deel):
+    greedy = pd.DataFrame(columns=['eind_score', 'solution'])
+    greedy['eind_score'] = [score]
+    greedy['solution'] = [solution]
+
+    path = "experiment/greedy"
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    greedy.to_csv("{}/{}.csv".format(path, deel), index = False)
+
 
 """ Versie waarbij meerdere langste lijsten en Min niet worden meegenomen """
 # class Greedy:

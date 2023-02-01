@@ -53,8 +53,8 @@ trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"],
 ["Rotterdam Alexander", "Gouda", "Alphen a/d Rijn", "Leiden Centraal"," Schiphol Airport", "Amsterdam Zuid"]]
 
 # creates plot of trajecten, return None, map can be found in Visualisatie/map.html
-create_plot(trajecten, StationsHolland, "Holland") 
-create_plot(trajecten, StationsNationaal, "NL")
+# create_plot(trajecten, StationsHolland, "Holland") 
+# create_plot(trajecten, StationsNationaal, "NL")
 
 # generate all possible simple paths in graph
 alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
@@ -65,8 +65,6 @@ random_sol_holland = random_solution(alle_trajecten_holland, 7)
 random_sol_nl = random_solution(alle_trajecten_nl, 20)
 
 
-create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland") 
-
 
 # calculate and print scores from random/baseline algorithm for both holland and NL datasets
 random_score_holland = calculate_score(G_holland, random_sol_holland)
@@ -76,18 +74,13 @@ random_score_nl = calculate_score(G_nederland, random_sol_nl)
 # create instance of Greedy Constructive Holland
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
-# greedy = pd.DataFrame(columns=['eind_score', 'solution'])
-# greedy['eind_score'] = [greedy_con_holland_solution_score]
-# greedy['solution'] = [greedy_con_holland_solution]
-# greedy.to_csv("experiment/greedy_con_holland.csv", index = False)
+# greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland")
 
 # create instance of Greedy Constructive NL
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
 # greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
-# greedy = pd.DataFrame(columns=['eind_score', 'solution'])
-# greedy['eind_score'] = [greedy_con_nl_solution_score]
-# greedy['solution'] = [greedy_con_nl_solution]
-# greedy.to_csv("experiment/greedy_con_nl.csv", index = False)
+# greedy_to_csv(greedy_con_nl_solution_score, greedy_con_nl_solution, "Nederland")
+
 
 # --------- Greedy Iterative algoritme ----------- #
 # save stations and connections from holland dataframes in lists
@@ -159,28 +152,28 @@ nl_aantal_trajecten = 20
 #iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 
 # Plot HillClimber met Random als beginstate in Holland
-#data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
-#create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
+data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
+create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
 
 # Plot HillClimber met Random als beginstate in Nederland
-#data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
-#create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland')
+data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
+create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland')
 
 # Plot HillClimber met 7langste trajecten als beginstate in Holland
-#data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
-#create_boxplot(data_Hol,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Holland')
+data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
+create_boxplot(data_Hol,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Holland')
 
 # Plot HillClimber met 7langste trajecten als beginstate in Nederland
-#data_NL = generate_data(iteraties, "experiment\HillClimber-7langste-Nederland\iteratie")
-#create_boxplot(data_NL,'7langste_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Nederland')
+data_NL = generate_data(iteraties, "experiment\HillClimber-7langste-Nederland\iteratie")
+create_boxplot(data_NL,'7langste_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Nederland')
 
 # Plot HillClimber met Greedy Constructive als beginstate in Holland
-#data_Hol = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Holland\iteratie")
-#create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Holland')
+data_Hol = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Holland\iteratie")
+create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Holland')
 
 # Plot HillClimber met Greedy Constructive als beginstate in Nederland
-#data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
-#create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
+data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
+create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
 
 # --------- Vergelijking algoritmes ---------- #
 
@@ -191,28 +184,37 @@ data, labels = generate_data_vergelijking_holland()
 create_boxplot(data,'Vergelijking Holland', 'Algoritmes', labels, 'Vergelijking Holland')
 
 # Plot alle algoritmes met de optimale waardes voor Nederland
-# Alle algoritmes: Greedy constructive, Random Baseline, Simulated Annealing, Hill-Climber
+# Alle algoritmes: Greedy constructive, Simulated Annealing, Hill-Climber
+# LET OP: er is voor gekozen om de random baseline weg te laten uit het plot. 
+# De random baseline was zo laag dat deze de duidelijkheid van het plot verstoorden.
 # Optimaal: [Hill-Climber 7 langste: 15000, Hill-Climber random: 15000, Hill-Climber Greedy: 200, Sim Annealing: 20000 iteraties/5temp]
 data, labels = generate_data_vergelijking_nl()
 create_boxplot(data,'Vergelijking Nederland', 'Algoritmes', labels, 'Vergelijking Nederland')
 
 
+# -------- Visualisatie op kaart van de beste oplossingen -------- #
+# Kaart van beste oplossing Hill Climber met beginstate 7 langste in Holland
+HC_7 = pd.read_csv("experiment/HillClimber-7langste-Holland/info_data.csv")
+best_solution_map(HC_7, StationsHolland, 10000, "Holland", "best_HC_7_Holland")
+
+# Kaart van beste oplossing Hill Climber met beginstate random in Holland
+HC_random = pd.read_csv("experiment/HillClimber-random-Holland/info_data.csv")
+best_solution_map(HC_random, StationsHolland, 8000, "Holland", "best_HC_random_Holland")
+
+# Kaart van beste oplossing Simulated Annealing met 20000 iteraties en temp=30 in Holland
 
 
+# Kaart van beste oplossing Hill Climber met beginstate 7 langste in Nederland
+HC_7 = pd.read_csv("experiment/HillClimber-7langste-Nederland/info_data.csv")
+best_solution_map(HC_7, StationsNationaal, 15000, "Nederland", "best_HC_7_NL")
 
-# " Vergelijking algoritmes Holland"
-# HC_7lan_hol = pd.read_csv('experiment\HillClimber-7langste-Holland\iteratie1000.csv')
-# # HC_Greedy_con_hol = pd.read_csv('experiment\HillClimber-Greedy_con-Holland\iteratie1000.csv')
-# HC_random_hol = pd.read_csv('experiment\HillClimber-random-Holland\iteratie8000.csv')
-# # simulated annealing komt er nog bij
-# data = HC_7lan_hol.iloc[:,1], HC_random_hol.iloc[:,1]
+# Kaart van beste oplossing Hill Climber met beginstate random in Nederland
+HC_random = pd.read_csv("experiment/HillClimber-random-Nederland/info_data.csv")
+best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_random_NL")
 
-# "Vergelijking algoritmes Nederland"
-# HC_7lan_nl = pd.read_csv('experiment\HillClimber-7langste-Nederland\iteratie15000.csv')
-# # HC_Greedy_con_nl = pd.read_csv('experiment\HillClimber-Greedy_con-Nederland\iteratie1000.csv')
-# HC_random_nl = pd.read_csv('experiment\HillClimber-random-Nederland\iteratie15000.csv')
-# # simulated annealing komt er nog bij
-# data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
+# Kaart van beste oplossing Simulated Annealing met 20000 iteraties en temp=30 in Nederland
+
+
 
 
 # --------------- Simulated Annealing ------------------ #
@@ -224,13 +226,13 @@ create_boxplot(data,'Vergelijking Nederland', 'Algoritmes', labels, 'Vergelijkin
 #create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
 #iteraties = [20000]
-temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
+# temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
 #for i in temp:
 #    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest2", G_nederland, 'random', temperatuur=i)
 #    experiment.run_experiment()
 
-data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
+# data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+# create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
 
 #print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
