@@ -200,7 +200,7 @@ temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
 #    experiment.run_experiment()
 
 data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing', "SimAnnealing")
+#create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing', "SimAnnealing")
 
 # Run Simulated Annealing algoritme voor Holland met verschillende hoeveelheden iteraties (temperatuur default = 1, best presterend = 30)
 iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
@@ -208,5 +208,5 @@ iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
 #experiment.run_experiment()
 
 # Maak boxplot van prestaties
-# data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland-temp30")
-# create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
+data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
+#create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
