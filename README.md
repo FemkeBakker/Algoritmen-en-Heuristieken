@@ -1,30 +1,6 @@
 # Algoritmen-en-Heuristieken
 Case: RailNL
 
-## Wat we nog moeten doen:
-- overal comments toegevoegd + in het nederlands
-- main opschonen. Alle uitgecommende code er uithalen
-- read.me. 
-- requirements.text -> Tijn
-- git.ignore file. Femke
-- tijd tabellen. Soufiane
-- vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing. Femke
-- visualizaties van de beste oplossingen van elk algoritme. Femke
-- berekenen maximum score. Tijn 
-
-Main opbouw:
-- laden data
-- aanmaken graven
-- genereer alle mogelijke paden
-- Random baseline -> moet opgeslagen worden in csv
-- Runnen van Greedy
-- Experiment Hill Climber -> opslaan van de data + TIJD TABELLEN
-- Experiment Hill Climber -> maken van de boxplots van de iteraties
-- Experiment Sim Annealing -> opslaan van de data + TIJD TABELLEN
-- Experiment Sim Annealing -> maken van de boxplots van de iteraties en tempratuur
-- Experiment vergelijking van de algoritmes
-- Visualizatie van de kaart van de beste oplossingen.
-
 #### Runnen van de code
 De code kan gerund worden door de command: py main.py te runnen. Alles wat gegenereerd wordt is al opgeslagen in de mappen. 
 Er zijn delen van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt en/of het belangrijk is dat er constant met dezelfde waardes gewerkt wordt (zoals bij de random baseline). De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
