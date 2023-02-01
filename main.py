@@ -119,12 +119,23 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # experiment.run_experiment()
 
 "Constructieve Greedy beginste - Holland"
+
+# Laad Greedy oplossing uit csv
+greedy_con_holland_solution = pd.read_csv("experiment/greedy/Holland.csv")['solution'].values[0]
+greedy_con_holland_solution = ast.literal_eval(greedy_con_holland_solution)
+
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_holland, holland_aantal_trajecten, "Holland", G_holland, {"Greedy_con":greedy_con_holland_solution})
 # experiment.run_experiment()
 
 "Constructieve Greedy beginste - Nederland"
+
+# Laad Greedy oplossing uit csv
+greedy_con_nl_solution = pd.read_csv("experiment/greedy/Nederland.csv")['solution'].values[0]
+greedy_con_nl_solution = ast.literal_eval(greedy_con_nl_solution)
+
 # experiment = generate_experiment(HillClimber, iteraties, experiment_count, alle_trajecten_nl, nl_aantal_trajecten, "Nederland", G_nederland, {"Greedy_con":greedy_con_nl_solution})
 # experiment.run_experiment()
+
 
 # ------- Visualisatie Experiment -------- #
 
