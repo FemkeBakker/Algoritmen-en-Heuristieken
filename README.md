@@ -6,13 +6,13 @@ project - Case: RailNL
 ## Wat we nog moeten doen:
 - overal comments toegevoegd + in het nederlands
 - main opschonen. Alle uitgecommende code er uithalen
-- read.me
-- requirements.text
-- git.ignore file
-- tijd tabellen
-- vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing
-- visualizaties van de beste oplossingen van elk algoritme. 
-- berekenen maximum score
+- read.me. 
+- requirements.text -> Tijn
+- git.ignore file. Femke
+- tijd tabellen. Soufiane
+- vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing. Femke
+- visualizaties van de beste oplossingen van elk algoritme. Femke
+- berekenen maximum score. Tijn 
 
 Main opbouw:
 - laden data
@@ -21,7 +21,7 @@ Main opbouw:
 - Random baseline -> moet opgeslagen worden in csv
 - Runnen van Greedy
 - Experiment Hill Climber -> opslaan van de data + TIJD TABELLEN
-- Experiment HillClimber -> maken van de boxplots van de iteraties
+- Experiment Hill Climber -> maken van de boxplots van de iteraties
 - Experiment Sim Annealing -> opslaan van de data + TIJD TABELLEN
 - Experiment Sim Annealing -> maken van de boxplots van de iteraties en tempratuur
 - Experiment vergelijking van de algoritmes
