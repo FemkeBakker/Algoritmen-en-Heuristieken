@@ -60,7 +60,6 @@ def create_boxplot(data_, deel, xas, x_ticklabels, title):
 def generate_data(iteraties, path):
     data_tup = tuple()
     for iteratie in iteraties:
-        # data_tup = (*data_tup, pd.read_csv('experiment\SimAnnealing-random-Nederland\iteratie{}.csv'.format(iteratie)))
         data_tup = (*data_tup, pd.read_csv("{}{}.csv".format(path,iteratie))['eind_score'])
     return data_tup
 
