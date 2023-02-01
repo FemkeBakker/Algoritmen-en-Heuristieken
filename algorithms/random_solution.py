@@ -1,9 +1,10 @@
 import networkx as nx
 import random
 import pandas as pd
+import os
+
 
 from Score import *
-import os
 
 
 # functie genereert alle mogelijke simple paths
