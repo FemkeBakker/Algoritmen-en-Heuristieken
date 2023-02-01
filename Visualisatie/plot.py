@@ -108,3 +108,4 @@ def best_solution_map(data, stations, iteratie, deel, naam):
     best = ast.literal_eval(best)
 
     create_plot(best, stations, deel, naam)
+    return None
