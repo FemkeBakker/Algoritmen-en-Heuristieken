@@ -8,23 +8,6 @@ import time
 import pandas as pd
 import networkx as nx
 
-
-""" PSEUDO-CODE VOOR CONSTRUCTIVE 'GREEDY' ALGORITME """
-# neem lijst met alle mogelijke trajecten, plaats in een queue.
-# pak het langste traject.
-# check of er meerdere trajecten zijn met de langst voorkomende lengte.
-# als dit zo is; reken Min uit voor deze trajecten en neem het langste traject met de kleinste Min waarde.
-# als dit niet zo is; neem het langste traject.
-# voeg het langste traject toe aan lijst van gekozen trajecten.
-# ontleed dit gekozen traject in verbindingen, sla deze op in een lijst van alle verbindingen uit de gekozen trajecten.
-# verwijder het gekozen traject uit de queue met trajecten die nog bekeken moeten worden.
-# kijk naar de queue en pak weer het (nu) langste traject (met kleinst Min, waar nodig)
-# check of er overlap is in de verbindingen tussen dit gekozen traject en de lijst met bestaande verbindingen uit de gekozen trajecten.
-# als er overlap is, verwijder je het traject uit de queue en ga verder.
-# als er geen overlap is, voeg je het traject aan de lijst met gekozen trajecten.
-# herhaal dit proces tot het maximale aantal trajecten is bereikt of tot de queue leeg is.
-# bereken score voor de gekozen set aan trajecten.
-
 """ Versie waarbij meerdere langste lijsten worden gefilterd op laagste Min """
 class Greedy_Constructive:
     def __init__(self, alle_trajecten, G, max_trajecten):
