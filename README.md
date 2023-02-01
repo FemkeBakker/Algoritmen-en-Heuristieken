@@ -20,8 +20,8 @@ Main opbouw:
 - Random baseline -> moet opgeslagen worden in csv
 - Runnen van Greedy
 - Experiment Hill Climber -> opslaan van de data + TIJD TABELLEN
-- Experiment Sim Annealing -> opslaan van de data + TIJD TABELLEN
 - Experiment HillClimber -> maken van de boxplots van de iteraties
+- Experiment Sim Annealing -> opslaan van de data + TIJD TABELLEN
 - Experiment Sim Annealing -> maken van de boxplots van de iteraties en tempratuur
 - Experiment vergelijking van de algoritmes
 - Visualizatie van de kaart van de beste oplossingen.
