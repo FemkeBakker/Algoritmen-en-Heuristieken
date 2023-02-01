@@ -58,11 +58,11 @@ Voor Nederland geld:
 - Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
 - Simulated Annealing: 20000 iteraties en tempratuur=30
 
-Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climber, random baseline & Simulated Annealing.
+Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climbers, random baseline & Simulated Annealing.
 In het boxplot van Nederland is er gekozen om de random baseline weg te laten. Doordat de random baseline ver onder de andere scores ligt, verstoort dit de duidelijkheid van de visualisatie. 
 
-##### Visualisatie van de kaarten
-In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een wbebrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
+#### Visualisatie van de kaarten
+In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een webbrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
 
 #### Conclusie
 Uit de boxplots waarin alle algoritmes met elkaar vergeleken worden blijkt dat voor beide Nederland en Holland het Simulated Annealing het beste werkt. 
