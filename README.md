@@ -27,6 +27,12 @@ Main opbouw:
 - Experiment vergelijking van de algoritmes
 - Visualizatie van de kaart van de beste oplossingen.
 
+### Runnen van de code
+De code kan gerund worden door de command: py main.py te runnen. Alles wat gegenereerd wordt is al opgeslagen in de mappen. 
+Er zijn dele van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt. De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
+
+### Alle mogelijke trajecten
+Er is voor gekozen om de functie nx.all_simple_paths (uit de networkx library) te gebruiken om alle mogelijke trajecten te generen. Dit zijn NIET daadwerkelijk alle mogelijk trajecten. Aan de functie zit het constraint dat een station niet meer dan 1 keer in een traject kan voorkomen. Hierdoor zijn er 207 mogelijke trajecten in Holland en 2633 mogelijke trajecten in Nederland. 
 
 ####
 Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
@@ -42,8 +48,8 @@ De Classes die we hebben toegevoegd zijn Graph en Station.
 
 De class Traject wordt in principe niet gebruikt. De code hebben we laten staan voor het geval we deze later toch nodig hebben.
 
-##### Visualisatie
-In de map Visualisatie staat een html link: map.html. Deze link kan naar de browser gesleept worden zodat de visualisatie zichtbaar wordt.
+##### Visualisatie van de kaarten
+In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een wbebrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
 
 
 
