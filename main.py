@@ -209,4 +209,4 @@ iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
 
 # Maak boxplot van prestaties
 data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
-#create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
+# create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
