@@ -39,6 +39,25 @@ De manier waarop de Hill Climber kleine aanpassingen doet is door een random tra
 
 Er worden drie verschillende beginstates van de Hill Climber getest. (1) random beginstate, deze wordt gegenereerd door het gebruik van de random baseline. (2) 7 langste trajecten, de 7 langste trajecten uit alle mogelijke trajecten worden geselecteerd. (3) Greedy constructive, de oplossing die uit het Greedy constructive algoritme komt (deze is altijd het zelfde). 
 
+#### Generate Experiment
+Generate experiment zorgt er voor dat alle data voor het experimenteren voor het Hill Climber algoritme en het Simulated Annealing algoritme gegeneert worden. Alle berekende eindscores per iteratie worden opgeslagen. Er wordt ook een info_data.csv aangemaakt. Daarin staat een samenvatting van de iteraties van het algoritme, zoals het gemiddelde de runtime en de best gevonden oplossing.
+
+#### Vergelijking algoritmes
+Er is voor gekozen om per algoritme de meest optimale parameters (bv. iteraties, temperatuur) te kiezen en deze te vergelijken met de andere algoritmes. Dit betekent voor Holland het volgende:
+- Hill-Climber met beginstate random: 8000 iteraties.
+- Hill-Climber met beginstate 7 langste: 10000 iteraties.
+- Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
+- Simulated Annealing: - 
+
+Voor Nederland geld:
+- Hill-Climber met beginstate random: 15000 iteraties.
+- Hill-Climber met beginstate 7 langste: 15000 iteraties.
+- Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
+
+Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climber, random baseline & Simulated Annealing.
+In het boxplot van Nederland is er gekozen om de random baseline weg te laten. Doordat de random baseline ver onder de andere scores ligt, verstoort dit de duidelijkheid van de visualisatie. 
+
+
 ####
 Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
 Tot runtime 20k iteraties SA: 892.22 (15- minuten)

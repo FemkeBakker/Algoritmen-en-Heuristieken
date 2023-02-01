@@ -35,8 +35,6 @@ G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 # genereer alle mogelijke simple paths in graaf
 alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
 alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
-print(len(alle_trajecten_holland), len(alle_trajecten_nl))
-
 
 # ----- Random Baseline ------- #
 
