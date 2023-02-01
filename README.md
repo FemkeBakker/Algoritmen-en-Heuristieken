@@ -6,12 +6,12 @@ project - Case: RailNL
 ## Wat we nog moeten doen:
 - overal comments toegevoegd + in het nederlands
 - main opschonen. Alle uitgecommende code er uithalen
-- make_instance_station functie in main.py naar andere file. Wordt deze functie gebruikt?
-- example trajecten bij create_plot in main weg
-- in read.me -> uitleg over wat alle mogelijke traejcten zijn
-- random baseline moet nog 150 keer gerund worden. 
-- hoe willen we met de random baseline vergelijken? -> algoritmes (beste versie) in box plot?
-- het enkele keer runnen van HillClimber en SimAnnealing weghalen.
+- read.me
+- requirements.text
+- git.ignore file
+- vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing
+- visualizaties van de beste oplossingen van elk algoritme. 
+- berekenen maximum score
 
 Main opbouw:
 - laden data
