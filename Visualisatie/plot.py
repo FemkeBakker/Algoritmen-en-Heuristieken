@@ -55,6 +55,29 @@ def generate_data(iteraties, path):
     for iteratie in iteraties:
         # data_tup = (*data_tup, pd.read_csv('experiment\SimAnnealing-random-Nederland\iteratie{}.csv'.format(iteratie)))
         data_tup = (*data_tup, pd.read_csv("{}{}.csv".format(path,iteratie))['eind_score'])
-
-
     return data_tup
+
+def generate_data_vergelijking_holland():
+    HC_7 = pd.read_csv("experiment/HillClimber-7langste-Holland/iteratie10000.csv")['eind_score']
+    HC_random = pd.read_csv("experiment/HillClimber-random-Holland/iteratie8000.csv")['eind_score']
+    HC_greedy = pd.read_csv("experiment/HillClimber-Greedy_con-Holland/iteratie200.csv")['eind_score']
+    Greedy_con = pd.read_csv("experiment/HillClimber-Greedy_con-Holland/iteratie200.csv")['eind_score']
+    random_baseline = pd.read_csv("experiment/greedy_con_holland.csv")['eind_score']
+    # simulated annealing
+
+    data = (HC_7, HC_random, HC_greedy, Greedy_con, random_baseline)
+    labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "Random"]
+    return data, labels
+
+def generate_data_vergelijking_nl():
+    HC_7 = pd.read_csv("experiment/HillClimber-7langste-Nederland/iteratie15000.csv")['eind_score']
+    HC_random = pd.read_csv("experiment/HillClimber-random-Nederland/iteratie15000.csv")['eind_score']
+    HC_greedy = pd.read_csv("experiment/HillClimber-Greedy_con-Nederland/iteratie200.csv")['eind_score']
+    Greedy_con  = pd.read_csv("experiment/greedy_con_nl.csv")["eind_score"]
+    # random_baseline = pd.read_csv("experiment/Random_baseline/Nederland.csv")['eind_score']
+    SA = pd.read_csv("experiment/SimAnnealing-random-temptest/iteratie20000+temp5.csv")['eind_score']
+
+    data = (HC_7, HC_random, HC_greedy, Greedy_con, SA)
+    labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "SA"]
+
+    return data, labels

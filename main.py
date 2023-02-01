@@ -10,7 +10,7 @@ import numpy as np
 # import class functions from the class files
 from classes.station import Station
 from classes.Graph import Graph
-from Visualisatie.plot import create_boxplot, create_plot, generate_data
+from Visualisatie.plot import *
 from random_solution import *
 from Score import *
 from algorithms.HillClimber import HillClimber
@@ -64,7 +64,6 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 random_sol_holland = random_solution(alle_trajecten_holland, 7)
 random_sol_nl = random_solution(alle_trajecten_nl, 20)
 
-joe = random_to_csv(alle_trajecten_holland, 7, G_holland, "Holland", 150)
 
 create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland") 
 
@@ -73,15 +72,41 @@ create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland")
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-
+# --------- Greedy Constructive algoritme ----------- #
 # create instance of Greedy Constructive Holland
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
 # greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+# greedy = pd.DataFrame(columns=['eind_score', 'solution'])
+# greedy['eind_score'] = [greedy_con_holland_solution_score]
+# greedy['solution'] = [greedy_con_holland_solution]
+# greedy.to_csv("experiment/greedy_con_holland.csv", index = False)
 
 # create instance of Greedy Constructive NL
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
 # greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+# greedy = pd.DataFrame(columns=['eind_score', 'solution'])
+# greedy['eind_score'] = [greedy_con_nl_solution_score]
+# greedy['solution'] = [greedy_con_nl_solution]
+# greedy.to_csv("experiment/greedy_con_nl.csv", index = False)
 
+# --------- Greedy Iterative algoritme ----------- #
+# save stations and connections from holland dataframes in lists
+stations_holland = list(StationsHolland['station'])
+connecties_holland = [(station1, station2) for station1, station2 in zip(ConnectiesHolland['station1'], ConnectiesHolland['station2'])]
+
+# Bereken Greedy iterative score in Holland
+greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
+greedy_iterative_holland_solution = greedy_iterative_holland.kies_trajecten()
+# greedy_iterative_holland_score = calculate_score(G_holland, greedy_iterative_holland_solution)
+
+# save stations and connections from national dataframes in lists
+stations_nationaal = list(StationsNationaal['station'])
+connecties_nationaal = [(station1, station2) for station1, station2 in zip(ConnectiesNationaal['station1'], ConnectiesNationaal['station2'])]
+
+# Bereken Greedy iterative score in Nederland
+greedy_iterative_nl = Greedy_Iterative(G_nederland, stations_nationaal, connecties_nationaal, 20, 180)
+greedy_iterative_nl_solution = greedy_iterative_nl.kies_trajecten()
+# greedy_iterative_nl_score = calculate_score(G_holland, greedy_iterative_nl_solution)
 
 # ----------- Experiment Hill-Climber -------------------#
 
@@ -157,7 +182,19 @@ create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'Hil
 data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
 create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
 
+# --------- Vergelijking algoritmes ---------- #
 
+# Plot alle algoritmes met de optimale waardes voor Holland
+# Alle algoritmes: Greedy constructive, Random Baseline, Simulated Annealing, Hill-Climber
+# Optimaal: [Hill-Climber 7 langste: 10000, Hill-Climber random: 8000, Hill-Climber Greedy: 200, Sim Annealing: 20000 iteraties/5temp]
+data, labels = generate_data_vergelijking_holland()
+create_boxplot(data,'Vergelijking Holland', 'Algoritmes', labels, 'Vergelijking Holland')
+
+# Plot alle algoritmes met de optimale waardes voor Nederland
+# Alle algoritmes: Greedy constructive, Random Baseline, Simulated Annealing, Hill-Climber
+# Optimaal: [Hill-Climber 7 langste: 15000, Hill-Climber random: 15000, Hill-Climber Greedy: 200, Sim Annealing: 20000 iteraties/5temp]
+data, labels = generate_data_vergelijking_nl()
+create_boxplot(data,'Vergelijking Nederland', 'Algoritmes', labels, 'Vergelijking Nederland')
 
 
 
