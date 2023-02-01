@@ -61,23 +61,20 @@ Voor Nederland geld:
 Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climber, random baseline & Simulated Annealing.
 In het boxplot van Nederland is er gekozen om de random baseline weg te laten. Doordat de random baseline ver onder de andere scores ligt, verstoort dit de duidelijkheid van de visualisatie. 
 
+##### Visualisatie van de kaarten
+In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een wbebrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
+
+#### Conclusie
+Uit de boxplots waarin alle algoritmes met elkaar vergeleken worden blijkt dat voor beide Nederland en Holland het Simulated Annealing het beste werkt. 
+
 
 ####
 Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
 Tot runtime 20k iteraties SA: 892.22 (15- minuten)
+ 
 
-#### Milestone: Representatie
-Toegevoegd: Classes en Visualisatie
 
-##### Classes
-De Classes die we hebben toegevoegd zijn Graph en Station. 
-- De class Graph wordt gebruikt voor het creëren en opslaan van een directed graaf van de stations en connecties. Er is gebruik gemaakt van een directed graph zodat er met de Networkx library later gewerkt kan worden als de algoritmes worden geimplementeerd. 
-- De class Station wordt gebruikt voor het creëren en opslaan van de stations. Er zijn verschillende attriburen, zoals connection_graph, begin_station en end_station, die later gebruikt zouden kunnen worden bij het implementeren van de algoritmes.
 
-De class Traject wordt in principe niet gebruikt. De code hebben we laten staan voor het geval we deze later toch nodig hebben.
-
-##### Visualisatie van de kaarten
-In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een wbebrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
 
 
 
