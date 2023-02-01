@@ -190,54 +190,23 @@ best_solution_map(SA, StationsNationaal, 20000, "Nederland", "best_SA_NL")
 
 # Run Simulated Annealing algoritme met verschillende hoeveelheden iteraties (temperatuur default = 1, best presterend = 30)
 iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
-experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=30)
+#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=30)
 #experiment.run_experiment()
 
-<<<<<<< HEAD
-# Maak boxplot van prestaties
-data_SA = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
-#create_boxplot(data_SA,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
-
-# Run Simulated annealing algoirtme met verschillende tempertaturen om best presterende te bepalen
 iteraties = [20000]
 temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
-for i in temp:
-    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland, 'random', temperatuur=i)
-#    experiment.run_experiment()
-
-# Maak boxplot van prestaties
-data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-#create_boxplot(data_SA_temp,'SA_temp, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
-=======
-#iteraties = [20000]
-# temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
 #for i in temp:
 #    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest2", G_nederland, 'random', temperatuur=i)
 #    experiment.run_experiment()
 
-# data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-# create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
->>>>>>> 285524bcf04e7c43bbc2fdc0b1a528bf6ea40958
+data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing', "SimAnnealing")
 
 # Run Simulated Annealing algoritme voor Holland met verschillende hoeveelheden iteraties (temperatuur default = 1, best presterend = 30)
 iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
-experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 20, "Holland", G_holland, 'random', temperatuur=30)
+# experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 20, "Holland", G_holland, 'random', temperatuur=30)
 #experiment.run_experiment()
 
 # Maak boxplot van prestaties
-data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland-temp30\iteratie")
-#create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing')
-
-# ------------------------------------------------------- #
-
-# create instance of Greedy Constructive for holland
-# greedy_constructive_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-# print greedy constructive trajecten and score for holland
-# print(greedy_constructive_holland.kies_trajecten())
-
-# create instance of Greedy Iterative for holland
-#greedy_iterative_holland = Greedy_Iterative(G_holland, stations_holland, connecties_holland, 7, 120)
-#greddu = greedy_iterative_holland.kies_trajecten()
-# print greedy iterative trajecten en score holland
-#print(greedy_iterative_holland.kies_trajecten())
-# print(connecties_holland)
+# data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland-temp30")
+# create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
