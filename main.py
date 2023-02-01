@@ -91,12 +91,12 @@ holland_aantal_trajecten = 7
 nl_aantal_trajecten = 20
 
 # 7 langste trajecten in Holland
-copy_alle_trajecten_holland = alle_trajecten_holland.copy()
-langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
+#copy_alle_trajecten_holland = alle_trajecten_holland.copy()
+#langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
 
 # 20 langste trajecten in NL
-copy_alle_trajecten_nl = alle_trajecten_nl.copy()
-langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
+#copy_alle_trajecten_nl = alle_trajecten_nl.copy()
+#langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
 
 "Greedy constructive Holland"
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
@@ -131,31 +131,31 @@ langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0
 # experiment.run_experiment()
 
 # ------- Visualisatie Experiment -------- #
-iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+#iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 
 # Plot HillClimber met Random als beginstate in Holland
-data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
-create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
+#data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
+#create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Holland')
 
 # Plot HillClimber met Random als beginstate in Nederland
-data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
-create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland')
+#data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
+#create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland')
 
 # Plot HillClimber met 7langste trajecten als beginstate in Holland
-data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
-create_boxplot(data_Hol,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Holland')
+#data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
+#create_boxplot(data_Hol,'7langste_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Holland')
 
 # Plot HillClimber met 7langste trajecten als beginstate in Nederland
-data_NL = generate_data(iteraties, "experiment\HillClimber-7langste-Nederland\iteratie")
-create_boxplot(data_NL,'7langste_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Nederland')
+#data_NL = generate_data(iteraties, "experiment\HillClimber-7langste-Nederland\iteratie")
+#create_boxplot(data_NL,'7langste_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - 7 langste trajecten Nederland')
 
 # Plot HillClimber met Greedy Constructive als beginstate in Holland
-data_Hol = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Holland\iteratie")
-create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Holland')
+#data_Hol = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Holland\iteratie")
+#create_boxplot(data_Hol,'Greedy_con_Hol_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Holland')
 
 # Plot HillClimber met Greedy Constructive als beginstate in Nederland
-data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
-create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
+#data_NL = generate_data(iteraties, "experiment\HillClimber-Greedy_con-Nederland\iteratie")
+#create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Greedy constructive Nederland')
 
 
 
@@ -178,27 +178,24 @@ create_boxplot(data_NL,'Greedy_con_NL_iteraties', 'Iteraties', iteraties, 'HillC
 # data = HC_7lan_nl.iloc[:,1], HC_random_nl.iloc[:,1]
 
 
-# data = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
-
-# create_boxplot(data,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 # --------------- Simulated Annealing ------------------ #
 
-# iteraties = [20000]
-# experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland)
+#iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
+#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=5)
+#experiment.run_experiment()
+#data_SA_temp = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
+#create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
+#iteraties = [20000]
+temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
+#for i in temp:
+#    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest2", G_nederland, 'random', temperatuur=i)
+#    experiment.run_experiment()
 
+data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
+create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
 
-# temp = [0.1, 1, 5, 50]
-# #for i in temp:
-# #    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "temptest", G_nederland, 'random', temperatuur=i)
-# #   experiment.run_experiment()
-
-# data = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
-
-# #print(data)
-# create_boxplot(data,'SA, Nederland', 'temp', temp, 'Simulated Annealing')
-
-# print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
+#print(pd.read_csv("experiment/SimAnnealing-random/info_data.csv"))
 
 # ------------------------------------------------------- #
 

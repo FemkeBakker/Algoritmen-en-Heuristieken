@@ -27,6 +27,11 @@ Main opbouw:
 - Experiment vergelijking van de algoritmes
 - Visualizatie van de kaart van de beste oplossingen.
 
+
+####
+Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
+Tot runtime 20k iteraties SA: 892.22 (15- minuten)
+
 #### Milestone: Representatie
 Toegevoegd: Classes en Visualisatie
 
