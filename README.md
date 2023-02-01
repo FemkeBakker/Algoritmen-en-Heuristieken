@@ -37,7 +37,12 @@ Er is voor gekozen om de functie nx.all_simple_paths (uit de networkx library) t
 Er worden random trajecten geselecteerd uit alle mogelijke trajecten. Dubbele trajecten worden niet toegestaan.
 
 #### Greedy
-Greedy (constructief): In dit algoritme wordt eerst naar alle mogelijke trajecten gekeken en hieruit de langste gekozen, omdat deze zo veel mogelijk verbindingen meeneemt en zo wordt p (en daarmee de score) verhoogd. In het geval dat er meerdere trajecten voorkomen met de maximale lengte, wordt er vervolgens gekeken naar de Min van de trajecten en wordt het langste traject met de kleinste waarde voor Min gekozen. Vervolgens word dit proces herhaald, maar worden trajecten die verbindingen bevatten die al in de gekozen traject(en) voorkomt niét meer meegenomen, om zo zoveel mogelijk verbindingen mee te nemen en p te maximaliseren, terwijl Min als tweede factor wordt geminimaliseerd. Dit proces wordt herhaald tot het maximum van T (max aantal trajecten) wordt bereikt of tot er geen trajecten meer zijn om uit te kiezen. Ten slotte wordt de score van de gekozen trajecten berekend. 
+Greedy (constructief):
+In dit algoritme wordt eerst naar alle mogelijke trajecten gekeken en hieruit de langste gekozen, omdat deze zo veel mogelijk verbindingen meeneemt en zo wordt p (en daarmee de score) verhoogd. In het geval dat er meerdere trajecten voorkomen met de maximale lengte, wordt er vervolgens gekeken naar de Min van de trajecten en wordt het langste traject met de kleinste waarde voor Min gekozen. Vervolgens word dit proces herhaald, maar worden trajecten die verbindingen bevatten die al in de gekozen traject(en) voorkomt niét meer meegenomen, om zo zoveel mogelijk verbindingen mee te nemen en p te maximaliseren, terwijl Min als tweede factor wordt geminimaliseerd. Dit proces wordt herhaald tot het maximum van T (max aantal trajecten) wordt bereikt of tot er geen trajecten meer zijn om uit te kiezen. Ten slotte wordt de score van de gekozen trajecten berekend. 
+
+Greedy ('iterative'):
+Greedy is natuurlijk een constructieve algoritme. Wij hebben een tweede uitvoering van het greedy algoritme uitgewerkt ter vergelijking, deze noemen wij ter onderscheiding Greedy_Iterative. Greedy_Constructive is effectiever en wordt verder gebruikt in het experiment en het eindresultaat.
+Deze versie van het algoritme stelt zelf de trajecten samen door naar de stations te kijken, mogelijke verbindingen met de stations te zoeken, zoveel mogelijke unieke verbindingen mee te nemen en Min te minimaliseren. 
 
 #### Hill Climber
 De manier waarop de Hill Climber kleine aanpassingen doet is door een random traject te selecteren uit de huidige state en deze te vervangen met een random traject uit alle mogelijke trajecten. Er worden dus geen aanpassingen gedaan binnen de trajecten. 
@@ -70,7 +75,10 @@ Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillen
 In het boxplot van Nederland is er gekozen om de random baseline weg te laten. Doordat de random baseline ver onder de andere scores ligt, verstoort dit de duidelijkheid van de visualisatie. 
 
 #### Visualisatie van de kaarten
-In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een webbrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
+In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een webbrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen.
+
+#### runtime
+In de tabel 'runtime tabel' wordt gekeken naar de runtime van de meest effectieve versies van elk algoritme (gebaseerd op de parameters). Deze runtimes zijn gebaseerd op 150 runs per iteratie. 
 
 #### Conclusie
 Uit de boxplots waarin alle algoritmes met elkaar vergeleken worden blijkt dat voor beide Nederland en Holland het Simulated Annealing algoritme het beste werkt. 
