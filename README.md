@@ -25,7 +25,7 @@ De manier waarop de Hill Climber kleine aanpassingen doet is door een random tra
 
 Er worden drie verschillende beginstates van de Hill Climber getest. (1) random beginstate, deze wordt gegenereerd door het gebruik van de random baseline. (2) 7 langste trajecten, de 7 langste trajecten uit alle mogelijke trajecten worden geselecteerd. (3) Greedy constructive, de oplossing die uit het Greedy constructive algoritme komt (deze is altijd het zelfde). 
 
-# Simulated Annealing
+#### Simulated Annealing
 Het Simulated Annealing algoritme neemt het Hill Climber algoritme als basis, en voegt hier een kans aan toe dat een slechtere oplossing toch wordt meegenomen. Deze kans neem lineair af met een zogeheten 'temperatuur' parameter. 
 
 #### Generate Experiment
