@@ -187,7 +187,7 @@ HC_random = pd.read_csv("experiment/HillClimber-random-Nederland/info_data.csv")
 best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_random_NL")
 
 # Kaart van beste oplossing Simulated Annealing met 20000 iteraties en temp=30 in Nederland
-SA = pd.read_csv("experiment/SimAnnealing-random-Holland, temp30/info_data.csv")
+SA = pd.read_csv("experiment/SimAnnealing-random-temp30/info_data.csv")
 best_solution_map(SA, StationsNationaal, 20000, "Nederland", "best_SA_NL")
 
 
