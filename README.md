@@ -1,6 +1,32 @@
 # Algoritmen-en-Heuristieken
 project - Case: RailNL
 
+
+
+## Wat we nog moeten doen:
+- overal comments toegevoegd + in het nederlands
+- main opschonen. Alle uitgecommende code er uithalen
+- read.me. 
+- requirements.text -> Tijn
+- git.ignore file. Femke
+- tijd tabellen. Soufiane
+- vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing. Femke
+- visualizaties van de beste oplossingen van elk algoritme. Femke
+- berekenen maximum score. Tijn 
+
+Main opbouw:
+- laden data
+- aanmaken graven
+- genereer alle mogelijke paden
+- Random baseline -> moet opgeslagen worden in csv
+- Runnen van Greedy
+- Experiment Hill Climber -> opslaan van de data + TIJD TABELLEN
+- Experiment Hill Climber -> maken van de boxplots van de iteraties
+- Experiment Sim Annealing -> opslaan van de data + TIJD TABELLEN
+- Experiment Sim Annealing -> maken van de boxplots van de iteraties en tempratuur
+- Experiment vergelijking van de algoritmes
+- Visualizatie van de kaart van de beste oplossingen.
+
 #### Milestone: Representatie
 Toegevoegd: Classes en Visualisatie
 
@@ -12,4 +38,8 @@ De Classes die we hebben toegevoegd zijn Graph en Station.
 De class Traject wordt in principe niet gebruikt. De code hebben we laten staan voor het geval we deze later toch nodig hebben.
 
 ##### Visualisatie
-In de map Visualisatie staat een html link: map.html. Deze link kan naar de browser gesleept worden zodat de visualisatie zichtbaar wordt. 
+In de map Visualisatie staat een html link: map.html. Deze link kan naar de browser gesleept worden zodat de visualisatie zichtbaar wordt.
+
+
+
+
