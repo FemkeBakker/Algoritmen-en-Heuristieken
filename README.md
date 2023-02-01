@@ -9,6 +9,7 @@ project - Case: RailNL
 - read.me
 - requirements.text
 - git.ignore file
+- tijd tabellen
 - vergelijken algoritmes -> twee boxplot van Holland en Nederland met daarin de optimale versies van 3x HillClimber, 2x Greedy, 1x Random, 1 Simulated Annealing
 - visualizaties van de beste oplossingen van elk algoritme. 
 - berekenen maximum score
