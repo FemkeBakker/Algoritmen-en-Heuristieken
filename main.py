@@ -8,7 +8,7 @@ import random
 import numpy as np
 
 # import class functions from the class files
-from classes.station import Station
+# from classes.station import Station
 from classes.Graph import Graph
 from Visualisatie.plot import *
 from algorithms.random_solution import *
@@ -48,12 +48,13 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 
 
 # --------- Greedy Constructive algoritme ----------- #
-# create instance of Greedy Constructive Holland
-greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
-greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland")
 
-# create instance of Greedy Constructive NL
+""" Greedy Constructive Holland """
+# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+# greedy_to_csv(greedy_con_holland_solution_score, greedy_con_holland_solution, "Holland")
+
+""" Greedy Constructive Nederland """
 # greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
 # greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
 # greedy_to_csv(greedy_con_nl_solution_score, greedy_con_nl_solution, "Nederland")
