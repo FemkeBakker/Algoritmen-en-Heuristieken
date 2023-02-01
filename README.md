@@ -1,7 +1,5 @@
 # Algoritmen-en-Heuristieken
-project - Case: RailNL
-
-
+Case: RailNL
 
 ## Wat we nog moeten doen:
 - overal comments toegevoegd + in het nederlands
@@ -29,7 +27,7 @@ Main opbouw:
 
 ### Runnen van de code
 De code kan gerund worden door de command: py main.py te runnen. Alles wat gegenereerd wordt is al opgeslagen in de mappen. 
-Er zijn dele van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt en/of het belangrijk is dat er constant met dezelfde waardes gewerkt wordt (zoals bij de random baseline). De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
+Er zijn delen van de code gecomment, zoals het runnen van de HillClimber. Dit is gedaan omdat het runnen van de uitgecommente code lang duurt en/of het belangrijk is dat er constant met dezelfde waardes gewerkt wordt (zoals bij de random baseline). De data die uit de gecommente code gegeneert wordt is opgeslagen in csv files. 
 
 ### Alle mogelijke trajecten
 Er is voor gekozen om de functie nx.all_simple_paths (uit de networkx library) te gebruiken om alle mogelijke trajecten te generen. Dit zijn NIET daadwerkelijk alle mogelijk trajecten. Aan de functie zit het constraint dat een station niet meer dan 1 keer in een traject kan voorkomen. Hierdoor zijn er 207 mogelijke trajecten in Holland en 2633 mogelijke trajecten in Nederland. 
@@ -47,20 +45,21 @@ Er is voor gekozen om per algoritme de meest optimale parameters (bv. iteraties,
 - Hill-Climber met beginstate random: 8000 iteraties.
 - Hill-Climber met beginstate 7 langste: 10000 iteraties.
 - Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
-- Simulated Annealing: - 
+- Simulated Annealing:
+                - Temperatuur parameter: 30
+                - 20.000 iteraties
 
-Voor Nederland geld:
+Voor Nederland geldt:
 - Hill-Climber met beginstate random: 15000 iteraties.
 - Hill-Climber met beginstate 7 langste: 15000 iteraties.
 - Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
+- Simulated Annealing:
+                - Temperatuur parameter: 30
+                - 20.000 iteraties
 
 Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climber, random baseline & Simulated Annealing.
 In het boxplot van Nederland is er gekozen om de random baseline weg te laten. Doordat de random baseline ver onder de andere scores ligt, verstoort dit de duidelijkheid van de visualisatie. 
 
-
-####
-Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
-Tot runtime 20k iteraties SA: 892.22 (15- minuten)
 
 #### Milestone: Representatie
 Toegevoegd: Classes en Visualisatie
@@ -76,5 +75,8 @@ De class Traject wordt in principe niet gebruikt. De code hebben we laten staan 
 In de map Visualisatie/kaarten staan de kaarten van de beste oplossing opgeslagen in html links. Deze links kunnen naar een wbebrowser gesleept worden om de te bekijken. In de kaarten is echter niet te zien wanneer trajecten voor een deel overlappen. 
 
 
+####
+Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
+Tot runtime 20k iteraties SA: 892.22 (15- minuten)
 
 
