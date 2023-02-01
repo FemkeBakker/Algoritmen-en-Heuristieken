@@ -1,7 +1,8 @@
 # import functions
 from Score import *
-from random_solution import *
+from algorithms.random_solution import *
 from connections_paths import *
+import time
 
 # libraries
 import pandas as pd
@@ -49,6 +50,7 @@ class Greedy_Constructive:
 
     # main function for greedy
     def kies_trajecten(self):
+        start = time.perf_counter()
         queue = self.trajecten
         gekozen_trajecten = []
         verbindingen_totaal = []
@@ -85,12 +87,14 @@ class Greedy_Constructive:
 
         # calculate the score for the combination of selected trajectories
         score = calculate_score(self.G, gekozen_trajecten)
-        
-        return gekozen_trajecten, score
+        end = time.perf_counter()
+        runtime = end - start
+        return gekozen_trajecten, score, runtime
 
 # Functie slaat de scores van Greedy op in csv
-def greedy_to_csv(score, solution, deel):
-    greedy = pd.DataFrame(columns=['eind_score', 'solution'])
+def greedy_to_csv(score, solution, deel, runtime):
+    greedy = pd.DataFrame(columns=['runtime','eind_score', 'solution'])
+    greedy['runtime'] = [runtime]
     greedy['eind_score'] = [score]
     greedy['solution'] = [solution]
 

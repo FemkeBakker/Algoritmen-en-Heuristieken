@@ -6,7 +6,7 @@ import random
 
 # import classes and functions
 from classes.Graph import Graph
-from random_solution import *
+from algorithms.random_solution import *
 
 # load data Holland
 # ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")

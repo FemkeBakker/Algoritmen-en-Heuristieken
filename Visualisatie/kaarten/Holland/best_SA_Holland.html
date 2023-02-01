@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_902e58a250217105c98fd07742cc965c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_902e58a250217105c98fd07742cc965c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_902e58a250217105c98fd07742cc965c = L.map(
+                "map_902e58a250217105c98fd07742cc965c",
+                {
+                    center: [52.37, 4.9],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_67c344015af485845913dfb80b5e5736 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var tile_layer_29719a279f0658c8a57f1db18d32b728 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var circle_marker_118706d08b906775826c68eb2d24263c = L.circleMarker(
+                [52.63777924, 4.739722252],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_de0a6e3bcb381662f6291fc1a5d3ed5a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_293a0171bc2a599b417af30fd46c6a4b = $(`<div id="html_293a0171bc2a599b417af30fd46c6a4b" style="width: 100.0%; height: 100.0%;">Alkmaar</div>`)[0];
+                popup_de0a6e3bcb381662f6291fc1a5d3ed5a.setContent(html_293a0171bc2a599b417af30fd46c6a4b);
+            
+        
+
+        circle_marker_118706d08b906775826c68eb2d24263c.bindPopup(popup_de0a6e3bcb381662f6291fc1a5d3ed5a)
+        ;
+
+        
+    
+    
+            var circle_marker_a13eab4ca04357b3c4b45775844e9d97 = L.circleMarker(
+                [52.12444305, 4.657777786],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_4f1971ef59353341632694537ac2973a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5482560ce149230e0fed62c4d407627e = $(`<div id="html_5482560ce149230e0fed62c4d407627e" style="width: 100.0%; height: 100.0%;">Alphen a/d Rijn</div>`)[0];
+                popup_4f1971ef59353341632694537ac2973a.setContent(html_5482560ce149230e0fed62c4d407627e);
+            
+        
+
+        circle_marker_a13eab4ca04357b3c4b45775844e9d97.bindPopup(popup_4f1971ef59353341632694537ac2973a)
+        ;
+
+        
+    
+    
+            var circle_marker_cd183c5f3bc045f58c64cf7312d55a85 = L.circleMarker(
+                [52.34666824, 4.917778015],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_a131ef6d499782f73ba52acdef585016 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a4db90f59d3ff820ddb54d87759b1f54 = $(`<div id="html_a4db90f59d3ff820ddb54d87759b1f54" style="width: 100.0%; height: 100.0%;">Amsterdam Amstel</div>`)[0];
+                popup_a131ef6d499782f73ba52acdef585016.setContent(html_a4db90f59d3ff820ddb54d87759b1f54);
+            
+        
+
+        circle_marker_cd183c5f3bc045f58c64cf7312d55a85.bindPopup(popup_a131ef6d499782f73ba52acdef585016)
+        ;
+
+        
+    
+    
+            var circle_marker_ca4b78889e9adc06f0929dda9d6b7015 = L.circleMarker(
+                [52.37888718, 4.900277615],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_664e4b52145e7016a13b14e8d44c30b9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b0a1cbe74a36538bc5231d1617389c48 = $(`<div id="html_b0a1cbe74a36538bc5231d1617389c48" style="width: 100.0%; height: 100.0%;">Amsterdam Centraal</div>`)[0];
+                popup_664e4b52145e7016a13b14e8d44c30b9.setContent(html_b0a1cbe74a36538bc5231d1617389c48);
+            
+        
+
+        circle_marker_ca4b78889e9adc06f0929dda9d6b7015.bindPopup(popup_664e4b52145e7016a13b14e8d44c30b9)
+        ;
+
+        
+    
+    
+            var circle_marker_bdcb0143429cc1632ac4a6e6c7062241 = L.circleMarker(
+                [52.38888931, 4.837777615],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_25cec5fbbae86c005329071a8b2ef876 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d670e6cb728614d82502d8beede2dffa = $(`<div id="html_d670e6cb728614d82502d8beede2dffa" style="width: 100.0%; height: 100.0%;">Amsterdam Sloterdijk</div>`)[0];
+                popup_25cec5fbbae86c005329071a8b2ef876.setContent(html_d670e6cb728614d82502d8beede2dffa);
+            
+        
+
+        circle_marker_bdcb0143429cc1632ac4a6e6c7062241.bindPopup(popup_25cec5fbbae86c005329071a8b2ef876)
+        ;
+
+        
+    
+    
+            var circle_marker_fc1f33deaf04a5b4fd04fa03c29af819 = L.circleMarker(
+                [52.338889, 4.872356],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_9c55e667552a3f4dd24f8a1201299fa3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ef25e6e895f4292d630095c86644755 = $(`<div id="html_5ef25e6e895f4292d630095c86644755" style="width: 100.0%; height: 100.0%;">Amsterdam Zuid</div>`)[0];
+                popup_9c55e667552a3f4dd24f8a1201299fa3.setContent(html_5ef25e6e895f4292d630095c86644755);
+            
+        
+
+        circle_marker_fc1f33deaf04a5b4fd04fa03c29af819.bindPopup(popup_9c55e667552a3f4dd24f8a1201299fa3)
+        ;
+
+        
+    
+    
+            var circle_marker_82b13672c1eceda7a8af241cf9fdce01 = L.circleMarker(
+                [52.47833252, 4.656666756],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_cd8ee71fe9d0a29be847aa9448278156 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_45d3b2580b9e87e975b684a3c250c0dc = $(`<div id="html_45d3b2580b9e87e975b684a3c250c0dc" style="width: 100.0%; height: 100.0%;">Beverwijk</div>`)[0];
+                popup_cd8ee71fe9d0a29be847aa9448278156.setContent(html_45d3b2580b9e87e975b684a3c250c0dc);
+            
+        
+
+        circle_marker_82b13672c1eceda7a8af241cf9fdce01.bindPopup(popup_cd8ee71fe9d0a29be847aa9448278156)
+        ;
+
+        
+    
+    
+            var circle_marker_35e0c27351f3a8dd434903d91b8f2298 = L.circleMarker(
+                [52.54583359, 4.658611298],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_44864d8edae6e05334930ae9f47d6ea2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4fe279e836841e8882deb5af3c6c13f7 = $(`<div id="html_4fe279e836841e8882deb5af3c6c13f7" style="width: 100.0%; height: 100.0%;">Castricum</div>`)[0];
+                popup_44864d8edae6e05334930ae9f47d6ea2.setContent(html_4fe279e836841e8882deb5af3c6c13f7);
+            
+        
+
+        circle_marker_35e0c27351f3a8dd434903d91b8f2298.bindPopup(popup_44864d8edae6e05334930ae9f47d6ea2)
+        ;
+
+        
+    
+    
+            var circle_marker_9388aef7b104dbb4c8d58a209278e089 = L.circleMarker(
+                [52.00666809, 4.356389046],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_b8fe1593de579369ac917d8f18873933 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d4b1692b6d13a16256d4772ea2b8202d = $(`<div id="html_d4b1692b6d13a16256d4772ea2b8202d" style="width: 100.0%; height: 100.0%;">Delft</div>`)[0];
+                popup_b8fe1593de579369ac917d8f18873933.setContent(html_d4b1692b6d13a16256d4772ea2b8202d);
+            
+        
+
+        circle_marker_9388aef7b104dbb4c8d58a209278e089.bindPopup(popup_b8fe1593de579369ac917d8f18873933)
+        ;
+
+        
+    
+    
+            var circle_marker_1728790a5721b4d4257bf153da4b2149 = L.circleMarker(
+                [52.08027649, 4.324999809],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_3c9baf7bd10439bea6254ff8cba1b9bf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5f56ca8f0da9f29ade0badaea8383a8d = $(`<div id="html_5f56ca8f0da9f29ade0badaea8383a8d" style="width: 100.0%; height: 100.0%;">Den Haag Centraal</div>`)[0];
+                popup_3c9baf7bd10439bea6254ff8cba1b9bf.setContent(html_5f56ca8f0da9f29ade0badaea8383a8d);
+            
+        
+
+        circle_marker_1728790a5721b4d4257bf153da4b2149.bindPopup(popup_3c9baf7bd10439bea6254ff8cba1b9bf)
+        ;
+
+        
+    
+    
+            var circle_marker_6cdab253a01026f13f71ed6e382d1530 = L.circleMarker(
+                [52.95527649, 4.761111259],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_0eec8d0e7d5e6a5682e01cc68b1344d5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8e4f587984bbddfad84e02a20da985db = $(`<div id="html_8e4f587984bbddfad84e02a20da985db" style="width: 100.0%; height: 100.0%;">Den Helder</div>`)[0];
+                popup_0eec8d0e7d5e6a5682e01cc68b1344d5.setContent(html_8e4f587984bbddfad84e02a20da985db);
+            
+        
+
+        circle_marker_6cdab253a01026f13f71ed6e382d1530.bindPopup(popup_0eec8d0e7d5e6a5682e01cc68b1344d5)
+        ;
+
+        
+    
+    
+            var circle_marker_c16134840b94b716a30a611a13e91e91 = L.circleMarker(
+                [51.80722046, 4.66833353],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_8ccdb9340302c807efbfa4c7dbf8157f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0e72c9eb1c63e395396a7976afd75616 = $(`<div id="html_0e72c9eb1c63e395396a7976afd75616" style="width: 100.0%; height: 100.0%;">Dordrecht</div>`)[0];
+                popup_8ccdb9340302c807efbfa4c7dbf8157f.setContent(html_0e72c9eb1c63e395396a7976afd75616);
+            
+        
+
+        circle_marker_c16134840b94b716a30a611a13e91e91.bindPopup(popup_8ccdb9340302c807efbfa4c7dbf8157f)
+        ;
+
+        
+    
+    
+            var circle_marker_c27a0b3b53a1897b30a1355bb0908da2 = L.circleMarker(
+                [52.01750183, 4.704444408],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_5ea08b5d9de12faa152443052101065e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_06bcb3ad5e333e08358fdd2ad6ad1bfd = $(`<div id="html_06bcb3ad5e333e08358fdd2ad6ad1bfd" style="width: 100.0%; height: 100.0%;">Gouda</div>`)[0];
+                popup_5ea08b5d9de12faa152443052101065e.setContent(html_06bcb3ad5e333e08358fdd2ad6ad1bfd);
+            
+        
+
+        circle_marker_c27a0b3b53a1897b30a1355bb0908da2.bindPopup(popup_5ea08b5d9de12faa152443052101065e)
+        ;
+
+        
+    
+    
+            var circle_marker_c843fc9bae0afb35e21c19e2f6554bf2 = L.circleMarker(
+                [52.38777924, 4.638333321],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_f7c6ed59e055504abb73a554315d7aad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bc51dda3ff9f6eb499ec30ea009c5c8f = $(`<div id="html_bc51dda3ff9f6eb499ec30ea009c5c8f" style="width: 100.0%; height: 100.0%;">Haarlem</div>`)[0];
+                popup_f7c6ed59e055504abb73a554315d7aad.setContent(html_bc51dda3ff9f6eb499ec30ea009c5c8f);
+            
+        
+
+        circle_marker_c843fc9bae0afb35e21c19e2f6554bf2.bindPopup(popup_f7c6ed59e055504abb73a554315d7aad)
+        ;
+
+        
+    
+    
+            var circle_marker_4ca918fe32db82a0910472111860396f = L.circleMarker(
+                [52.35916519, 4.606666565],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_371935c48ae2aa94cb2cb4ed128d00c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2927e39d4f525cb3d377c7e29d9172fc = $(`<div id="html_2927e39d4f525cb3d377c7e29d9172fc" style="width: 100.0%; height: 100.0%;">Heemstede-Aerdenhout</div>`)[0];
+                popup_371935c48ae2aa94cb2cb4ed128d00c4.setContent(html_2927e39d4f525cb3d377c7e29d9172fc);
+            
+        
+
+        circle_marker_4ca918fe32db82a0910472111860396f.bindPopup(popup_371935c48ae2aa94cb2cb4ed128d00c4)
+        ;
+
+        
+    
+    
+            var circle_marker_819faaa519ea847f51b8e31f231c8361 = L.circleMarker(
+                [52.64472198, 5.055555344],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_4f6bd97e60b482e2069ab93578ca0d94 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_34601ab472b29550fa0d02ebc92096b9 = $(`<div id="html_34601ab472b29550fa0d02ebc92096b9" style="width: 100.0%; height: 100.0%;">Hoorn</div>`)[0];
+                popup_4f6bd97e60b482e2069ab93578ca0d94.setContent(html_34601ab472b29550fa0d02ebc92096b9);
+            
+        
+
+        circle_marker_819faaa519ea847f51b8e31f231c8361.bindPopup(popup_4f6bd97e60b482e2069ab93578ca0d94)
+        ;
+
+        
+    
+    
+            var circle_marker_d3bae764d96f72aebe9fa096221994ef = L.circleMarker(
+                [52.16611099, 4.481666565],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_719637f21db1e2878bd429efac2e5e8c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2ec6c90e1546a35ef95b1d6ba6b0097b = $(`<div id="html_2ec6c90e1546a35ef95b1d6ba6b0097b" style="width: 100.0%; height: 100.0%;">Leiden Centraal</div>`)[0];
+                popup_719637f21db1e2878bd429efac2e5e8c.setContent(html_2ec6c90e1546a35ef95b1d6ba6b0097b);
+            
+        
+
+        circle_marker_d3bae764d96f72aebe9fa096221994ef.bindPopup(popup_719637f21db1e2878bd429efac2e5e8c)
+        ;
+
+        
+    
+    
+            var circle_marker_891589750ca79ddcb18a0ce7577a8a4a = L.circleMarker(
+                [51.95194626, 4.553611279],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_7b547e6901dcb42468b7b6c2fbfce444 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2761a4c9e14df01d68b88dec99f31cc0 = $(`<div id="html_2761a4c9e14df01d68b88dec99f31cc0" style="width: 100.0%; height: 100.0%;">Rotterdam Alexander</div>`)[0];
+                popup_7b547e6901dcb42468b7b6c2fbfce444.setContent(html_2761a4c9e14df01d68b88dec99f31cc0);
+            
+        
+
+        circle_marker_891589750ca79ddcb18a0ce7577a8a4a.bindPopup(popup_7b547e6901dcb42468b7b6c2fbfce444)
+        ;
+
+        
+    
+    
+            var circle_marker_e73b2313e692ddcb43167c54601edad0 = L.circleMarker(
+                [51.92499924, 4.46888876],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_4d3085229a713feedc4f5fc8e7c17c28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a090cce0ea6ce5693bd84bf97175b493 = $(`<div id="html_a090cce0ea6ce5693bd84bf97175b493" style="width: 100.0%; height: 100.0%;">Rotterdam Centraal</div>`)[0];
+                popup_4d3085229a713feedc4f5fc8e7c17c28.setContent(html_a090cce0ea6ce5693bd84bf97175b493);
+            
+        
+
+        circle_marker_e73b2313e692ddcb43167c54601edad0.bindPopup(popup_4d3085229a713feedc4f5fc8e7c17c28)
+        ;
+
+        
+    
+    
+            var circle_marker_b9ffef876545a3dc92f7a4dcc1e1c554 = L.circleMarker(
+                [51.92124381, 4.408993721],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_eef16fa430703af1ed58240666c92752 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ed7c869c90189118268692364ee078f = $(`<div id="html_5ed7c869c90189118268692364ee078f" style="width: 100.0%; height: 100.0%;">Schiedam Centrum</div>`)[0];
+                popup_eef16fa430703af1ed58240666c92752.setContent(html_5ed7c869c90189118268692364ee078f);
+            
+        
+
+        circle_marker_b9ffef876545a3dc92f7a4dcc1e1c554.bindPopup(popup_eef16fa430703af1ed58240666c92752)
+        ;
+
+        
+    
+    
+            var circle_marker_c9ebe5bce9b74ce068c8d884caab9a33 = L.circleMarker(
+                [52.30944443, 4.761944294],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_1aef09477f64a3da7acf22f322727d28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_427a9db866aa936b2b10fd827fb2d830 = $(`<div id="html_427a9db866aa936b2b10fd827fb2d830" style="width: 100.0%; height: 100.0%;">Schiphol Airport</div>`)[0];
+                popup_1aef09477f64a3da7acf22f322727d28.setContent(html_427a9db866aa936b2b10fd827fb2d830);
+            
+        
+
+        circle_marker_c9ebe5bce9b74ce068c8d884caab9a33.bindPopup(popup_1aef09477f64a3da7acf22f322727d28)
+        ;
+
+        
+    
+    
+            var circle_marker_b28009ab2ec3b38ea461d74d0fe1df50 = L.circleMarker(
+                [52.43888855, 4.813611031],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+        var popup_9dfdb788cc1ea9a137b0f13d2c92ef4c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5712f60ff24e7a4a9ff45bb7edaff939 = $(`<div id="html_5712f60ff24e7a4a9ff45bb7edaff939" style="width: 100.0%; height: 100.0%;">Zaandam</div>`)[0];
+                popup_9dfdb788cc1ea9a137b0f13d2c92ef4c.setContent(html_5712f60ff24e7a4a9ff45bb7edaff939);
+            
+        
+
+        circle_marker_b28009ab2ec3b38ea461d74d0fe1df50.bindPopup(popup_9dfdb788cc1ea9a137b0f13d2c92ef4c)
+        ;
+
+        
+    
+    
+            var poly_line_61349dab13e671b4c0f9bf4d6df2ae7e = L.polyline(
+                [[51.80722046, 4.66833353], [51.92499924, 4.46888876], [51.95194626, 4.553611279], [52.01750183, 4.704444408], [52.12444305, 4.657777786]],
+                {"bubblingMouseEvents": true, "color": ["#3DCBF8"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#3DCBF8"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_f8451cd92ff6d4c47ed668bcc6c4d5a2 = L.polyline(
+                [[52.34666824, 4.917778015], [52.338889, 4.872356], [52.30944443, 4.761944294]],
+                {"bubblingMouseEvents": true, "color": ["#9C7A50"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#9C7A50"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_1826c444795be22c3beebfb11066f070 = L.polyline(
+                [[52.338889, 4.872356], [52.38888931, 4.837777615], [52.43888855, 4.813611031], [52.54583359, 4.658611298], [52.63777924, 4.739722252], [52.95527649, 4.761111259]],
+                {"bubblingMouseEvents": true, "color": ["#EDC8F9"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#EDC8F9"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_851d5b6b89e34dfafaecd2ae6a852eaa = L.polyline(
+                [[52.34666824, 4.917778015], [52.37888718, 4.900277615], [52.38888931, 4.837777615], [52.38777924, 4.638333321]],
+                {"bubblingMouseEvents": true, "color": ["#A42D5B"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#A42D5B"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_cacd5c2463e3c4999d7cf164acbc5adb = L.polyline(
+                [[52.16611099, 4.481666565], [52.35916519, 4.606666565], [52.38777924, 4.638333321], [52.47833252, 4.656666756], [52.54583359, 4.658611298], [52.63777924, 4.739722252], [52.64472198, 5.055555344]],
+                {"bubblingMouseEvents": true, "color": ["#F2B871"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#F2B871"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_c1483be29e8ef356fb3271e1f7b8e5e1 = L.polyline(
+                [[51.92499924, 4.46888876], [51.92124381, 4.408993721], [52.00666809, 4.356389046], [52.08027649, 4.324999809], [52.16611099, 4.481666565], [52.30944443, 4.761944294]],
+                {"bubblingMouseEvents": true, "color": ["#C5E8B9"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#C5E8B9"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+    
+            var poly_line_adbdab21b051bdf540e8574d0ae93bcc = L.polyline(
+                [[52.16611099, 4.481666565], [52.12444305, 4.657777786]],
+                {"bubblingMouseEvents": true, "color": ["#BDC538"], "dashArray": null, "dashOffset": null, "fill": false, "fillColor": ["#BDC538"], "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_902e58a250217105c98fd07742cc965c);
+        
+</script>
+</html>
