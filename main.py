@@ -2,12 +2,8 @@
 
 # libraries
 import pandas as pd
-import networkx as nx
-import folium
-import random
-import numpy as np
 
-# import class functions from the class files
+# import functies uit andere files
 from classes.Graph import Graph
 from Visualisatie.plot import *
 from algorithms.random_solution import *
