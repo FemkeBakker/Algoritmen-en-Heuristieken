@@ -43,12 +43,12 @@ class Greedy_Constructive:
         self.G = G
         self.max_trajecten = max_trajecten
 
-    # function for calculating Min for a single traject
+    # functie voor het berekenen van het aantal minuten van 1 traject.
     def calculate_Min(self, path):
         Min = nx.path_weight(self.G.graaf, path, weight = "weight")
         return Min
 
-    # main function for greedy
+    # main functie voor greedy
     def kies_trajecten(self):
         start = time.perf_counter()
         queue = self.trajecten
@@ -56,36 +56,43 @@ class Greedy_Constructive:
         verbindingen_totaal = []
         trajecten_en_Min = dict()
 
-        # loop until max trajectories is reached
+        # loop tot het max trajecten is bereikt.
         while len(gekozen_trajecten) < self.max_trajecten:
-            # select longest trajectories from queue
+
+            # selecteer langste trajecten uit queu.
             langste_trajecten = list(filter(lambda x: len(x) == max(map(len,queue)), queue))
 
-            # calculate Min for each of the longest trajects, then select the longest trajectory with the smallest Min value
+            # bereken minuten voor elk van de langste trajecten, selecteer dan het langste traject met het laagste aantal minuten.
             for traject in langste_trajecten:
                 Min = self.calculate_Min(traject)
                 trajecten_en_Min[tuple(traject)] = Min
             langste_traject = list(min(trajecten_en_Min, key=trajecten_en_Min.get))
 
-            # extract all connections from the selected traject, check if connections already exist within chosen trajectories
+            # neem alle connection uit geselecteerde traject, check of connection al bestaat in gekozen trajecten.
             verbindingen = from_paths_to_connections(langste_traject)
             overlap = False
             for verbinding in verbindingen:
                 if verbinding in verbindingen_totaal or (verbinding[1], verbinding[0]) in verbindingen_totaal:
                     overlap = True
                     break
-            # if connections already exist, remove trajectory from queue and empty dict for next loop
+
+            # als connections al bestaan, verwijder traject uit quee
             if overlap:
                 queue.remove(langste_traject)
+
+                # maak dict leeg voor volgende loop
                 trajecten_en_Min.clear()
-            # if connections do not exist yet, save the selected trajectory and its connections and remove it from the queue. Also empty dict for next loop.
+
+            # als connecties nog niet bestaan, sla het geselecteerde tractect en de connetie op en verwijder het uit de queu. 
             else:
                 gekozen_trajecten.append(langste_traject)
                 verbindingen_totaal.extend(verbindingen)
                 queue.remove(langste_traject)
+
+                # maak dict leeg voor volgende loop
                 trajecten_en_Min.clear()
 
-        # calculate the score for the combination of selected trajectories
+        # bereken de totaal score van de geselecteerde trajecten
         score = calculate_score(self.G, gekozen_trajecten)
         end = time.perf_counter()
         runtime = end - start
@@ -104,43 +111,3 @@ def greedy_to_csv(score, solution, deel, runtime):
         os.makedirs(path)
 
     greedy.to_csv("{}/{}.csv".format(path, deel), index = False)
-
-
-""" Versie waarbij meerdere langste lijsten en Min niet worden meegenomen """
-# class Greedy:
-#     def __init__(self, alle_trajecten, G, max_trajecten):
-#         self.trajecten = alle_trajecten
-#         self.G = G
-#         self.max_trajecten = max_trajecten
-
-    # main function for greedy
-#     def kies_trajecten(self):
-#         queue = self.trajecten
-#         gekozen_trajecten = []
-#         verbindingen_totaal = []
-
-        # loop until max trajectories is reached
-#         while len(gekozen_trajecten) < self.max_trajecten:
-            # select longest trajectory from queue
-#             langste_traject = max(queue, key=len)
-            # extract all connections from the selected traject, check if connections already exist within chosen trajectories
-#             verbindingen = from_paths_to_connections(langste_traject)
-#             overlap = False
-#             for verbinding in verbindingen:
-#                 if verbinding in verbindingen_totaal or (verbinding[1], verbinding[0]) in verbindingen_totaal:
-#                     overlap = True
-#                     break
-            # if connections already exist, remove trajectory from queue
-#             if overlap:
-#                 queue.remove(langste_traject)
-            # if connections do not exist yet, save the selected trajectory and its connections and remove it from the queue.
-#             else:
-#                 gekozen_trajecten.append(langste_traject)
-#                 verbindingen_totaal.extend(verbindingen)
-#                 queue.remove(langste_traject)
-        # calculate the score for the combination of selected trajectories
-#         score = calculate_score(self.G, gekozen_trajecten)
-        
-#         return gekozen_trajecten, score
-
-
