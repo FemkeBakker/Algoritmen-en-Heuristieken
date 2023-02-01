@@ -88,11 +88,13 @@ class Greedy_Constructive:
         
         return gekozen_trajecten, score
 
+# Functie slaat de scores van Greedy op in csv
 def greedy_to_csv(score, solution, deel):
     greedy = pd.DataFrame(columns=['eind_score', 'solution'])
     greedy['eind_score'] = [score]
     greedy['solution'] = [solution]
 
+    # maak greedy map in experiment aan als deze nog niet bestaat
     path = "experiment/greedy"
     if not os.path.exists(path):
         os.makedirs(path)

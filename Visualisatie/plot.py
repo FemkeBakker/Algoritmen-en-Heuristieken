@@ -73,7 +73,9 @@ def generate_data_vergelijking_holland():
     random_baseline = pd.read_csv("experiment/Random_baseline/Holland.csv")['eind_score']
     # simulated annealing
 
+    # maak tuple van alle data
     data = (HC_7, HC_random, HC_greedy, Greedy_con, random_baseline)
+    
     labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "Random"]
     return data, labels
 
@@ -85,12 +87,20 @@ def generate_data_vergelijking_nl():
     Greedy_con  = pd.read_csv("experiment/greedy/Nederland.csv")["eind_score"]
     SA = pd.read_csv("experiment/SimAnnealing-random-temptest/iteratie20000+temp30.csv")['eind_score']
 
+    # maak tuple van alle data 
     data = (HC_7, HC_random, HC_greedy, Greedy_con, SA)
+
     labels = ['HC_7', "HC_random", "HC_greedy", "Greedy_con", "SA"]
 
     return data, labels
 
+# Functie maakt de kaart van de meegegeven oplossing
 def best_solution_map(data, stations, iteratie, deel, naam):
+
+    # selecteer de beste oplossing
     best = data[data['iteratie']==iteratie]['best_solution'].values[0]
+
+    # zet de oplossing van string om naar list
     best = ast.literal_eval(best)
+
     create_plot(best, stations, deel, naam)

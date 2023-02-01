@@ -19,22 +19,23 @@ from algorithms.Greedy_Iterative import Greedy_Iterative
 from algorithms.SimAnnealing import SimAnnealing
 from experiment.generate_experiment import *
 
-
-# load data Deel 1 - Noord-Holland & Zuid-Holland
+# ------- Haal data op ------ #
+# Laad data Deel 1 - Noord-Holland & Zuid-Holland
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
-# load data deel 2 - Heel NL
+# Laad data deel 2 - Heel NL
 ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
 StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
 
-# create Graph instances
+# creër Graph instances
 G_holland = Graph(ConnectiesHolland, StationsHolland)
 G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
-# generate all possible simple paths in graph
+# genereer alle mogelijke simple paths in graaf
 alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
 alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
+
 
 # ----- Random Baseline ------- #
 
@@ -46,29 +47,6 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 """ Random Baseline Nederland """
 # random_to_csv(alle_trajecten_nl, 7, G_nederland, "Nederland", 150)
 
-
-# example input for plot visualization
-trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"], 
-["Amsterdam Sloterdijk", "Amsterdam Centraal", "Amsterdam Amstel", "Amsterdam Zuid", "Schiphol Airport"], 
-["Rotterdam Alexander", "Gouda", "Alphen a/d Rijn", "Leiden Centraal"," Schiphol Airport", "Amsterdam Zuid"]]
-
-# creates plot of trajecten, return None, map can be found in Visualisatie/map.html
-# create_plot(trajecten, StationsHolland, "Holland") 
-# create_plot(trajecten, StationsNationaal, "NL")
-
-# generate all possible simple paths in graph
-alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
-alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
-
-# get random solution, chosen from all possible simple paths in graph
-random_sol_holland = random_solution(alle_trajecten_holland, 7)
-random_sol_nl = random_solution(alle_trajecten_nl, 20)
-
-
-
-# calculate and print scores from random/baseline algorithm for both holland and NL datasets
-random_score_holland = calculate_score(G_holland, random_sol_holland)
-random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
 # --------- Greedy Constructive algoritme ----------- #
 # create instance of Greedy Constructive Holland
@@ -109,12 +87,12 @@ holland_aantal_trajecten = 7
 nl_aantal_trajecten = 20
 
 # 7 langste trajecten in Holland
-#copy_alle_trajecten_holland = alle_trajecten_holland.copy()
-#langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
+copy_alle_trajecten_holland = alle_trajecten_holland.copy()
+langste_trajecten_holland = sorted(copy_alle_trajecten_holland, key = len, reverse=True)[0:holland_aantal_trajecten]
 
 # 20 langste trajecten in NL
-#copy_alle_trajecten_nl = alle_trajecten_nl.copy()
-#langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
+copy_alle_trajecten_nl = alle_trajecten_nl.copy()
+langste_trajecten_nl = sorted(copy_alle_trajecten_nl, key = len, reverse=True)[0:nl_aantal_trajecten]
 
 "Greedy constructive Holland"
 # greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
@@ -149,7 +127,6 @@ nl_aantal_trajecten = 20
 # experiment.run_experiment()
 
 # ------- Visualisatie Experiment -------- #
-#iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
 
 # Plot HillClimber met Random als beginstate in Holland
 data_Hol = generate_data(iteraties, "experiment\HillClimber-random-Holland\iteratie")
