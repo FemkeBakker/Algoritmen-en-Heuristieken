@@ -44,6 +44,9 @@ De manier waarop de Hill Climber kleine aanpassingen doet is door een random tra
 
 Er worden drie verschillende beginstates van de Hill Climber getest. (1) random beginstate, deze wordt gegenereerd door het gebruik van de random baseline. (2) 7 langste trajecten, de 7 langste trajecten uit alle mogelijke trajecten worden geselecteerd. (3) Greedy constructive, de oplossing die uit het Greedy constructive algoritme komt (deze is altijd het zelfde). 
 
+# Simulated Annealing
+Het Simulated Annealing algoritme neemt het Hill Climber algoritme als basis, en voegt hier een kans aan toe dat een slechtere oplossing toch wordt meegenomen. Deze kans neem lineair af met een zogeheten 'temperatuur' parameter. 
+
 #### Generate Experiment
 Generate experiment zorgt er voor dat alle data voor het experimenteren voor het Hill Climber algoritme en het Simulated Annealing algoritme gegeneert worden. Alle berekende eindscores per iteratie worden opgeslagen. Er wordt ook een info_data.csv aangemaakt. Daarin staat een samenvatting van de iteraties van het algoritme, zoals het gemiddelde de runtime en de best gevonden oplossing.
 
@@ -61,9 +64,6 @@ Voor Nederland geldt:
 - Hill-Climber met beginstate random: 15000 iteraties.
 - Hill-Climber met beginstate 7 langste: 15000 iteraties.
 - Hill-Climber met beginstate Greedy constructive: 200 iteraties. Er is gekozen voor 200 iteraties omdat de HillClimber hier in een lokaal optimum vast zit. Door de afweging te maken tussen tijd en score is 200 iteraties optimaal. 
-- Simulated Annealing:
-                - Temperatuur parameter: 30
-                - 20.000 iteraties
 - Simulated Annealing: 20000 iteraties en tempratuur=30
 
 Alle algoritmes worden geplot in een boxplot: Greedy constructive, 3 verschillende Hill Climbers, random baseline & Simulated Annealing.
