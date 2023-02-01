@@ -24,33 +24,28 @@ from experiment.generate_experiment import *
 ConnectiesHolland = pd.read_csv("Data-deel1/ConnectiesHolland.csv")
 StationsHolland = pd.read_csv("Data-deel1/StationsHolland.csv")
 
-# save stations and connections from holland dataframes in lists
-stations_holland = list(StationsHolland['station'])
-connecties_holland = [(station1, station2) for station1, station2 in zip(ConnectiesHolland['station1'], ConnectiesHolland['station2'])]
-# print(connecties_holland)
-
 # load data deel 2 - Heel NL
 ConnectiesNationaal = pd.read_csv("Data-deel2/ConnectiesNationaal.csv")
 StationsNationaal = pd.read_csv("Data-deel2/StationsNationaal.csv")
-
-# save stations and connections from national dataframes in lists
-stations_nationaal = list(StationsNationaal['station'])
-connecties_nationaal = [(station1, station2) for station1, station2 in zip(ConnectiesNationaal['station1'], ConnectiesNationaal['station2'])]
 
 # create Graph instances
 G_holland = Graph(ConnectiesHolland, StationsHolland)
 G_nederland = Graph(ConnectiesNationaal, StationsNationaal)
 
-# return dict with station as key and value as the Station class instance of that station
-def make_instances_station(df_stations, df_connecties):
-    stations = dict()
-    for station in df_stations['station'].values:
-        stations[station] = Station(station, df_connecties, df_stations)
-    return stations
+# generate all possible simple paths in graph
+alle_trajecten_holland = generate_all_trajecten(G_holland, 120)
+alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 
-# create Station instances
-stations_holland_class = make_instances_station(StationsHolland, ConnectiesHolland)
-stations_nl_class = make_instances_station(StationsNationaal, ConnectiesNationaal)
+# ----- Random Baseline ------- #
+
+# Uitkomsten worden opgeslagen in experiment/Random_baseline. Code is uitgecomment, zodat het maar 1 keer gerunt wordt.
+# De baseline wordt 150 keer getest. 
+""" Random Baseline Holland """
+# random_to_csv(alle_trajecten_holland, 7, G_holland, "Holland", 150)
+
+""" Random Baseline Nederland """
+# random_to_csv(alle_trajecten_nl, 7, G_nederland, "Nederland", 150)
+
 
 # example input for plot visualization
 trajecten = [["Beverwijk", "Castricum", "Alkmaar", "Hoorn", "Zaandam"], 
@@ -69,6 +64,8 @@ alle_trajecten_nl = generate_all_trajecten(G_nederland, 180)
 random_sol_holland = random_solution(alle_trajecten_holland, 7)
 random_sol_nl = random_solution(alle_trajecten_nl, 20)
 
+joe = random_to_csv(alle_trajecten_holland, 7, G_holland, "Holland", 150)
+
 create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland") 
 
 
@@ -76,34 +73,22 @@ create_plot(random_sol_holland, StationsHolland, "Random_sol_Holland")
 random_score_holland = calculate_score(G_holland, random_sol_holland)
 random_score_nl = calculate_score(G_nederland, random_sol_nl)
 
-# print("Baseline score Holland: ",random_score_holland)
-# print("Baseline score Nederland: ",random_score_nl)
-
-# run Hill Climber
-# hill_climber = HillClimber(random_sol_holland, alle_trajecten_holland, G_holland)
-# hill_climber.run(200)
-# print(hill_climber.score_state)
-
-# run Simulated Annealing
-#sim_annealing = SimAnnealing(random_sol_holland, alle_trajecten_holland, G_holland)
-#sim_annealing.run(2000)
-# print(sim_annealing.score_state)
 
 # create instance of Greedy Constructive Holland
-#greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
-#greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
+# greedy_contructief_holland = Greedy_Constructive(alle_trajecten_holland, G_holland, 7)
+# greedy_con_holland_solution, greedy_con_holland_solution_score = greedy_contructief_holland.kies_trajecten()
 
 # create instance of Greedy Constructive NL
-#greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
-#greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
+# greedy_contructief_nl = Greedy_Constructive(alle_trajecten_nl, G_nederland, 20)
+# greedy_con_nl_solution, greedy_con_nl_solution_score = greedy_contructief_nl.kies_trajecten()
 
 
 # ----------- Experiment Hill-Climber -------------------#
 
-#iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
-#experiment_count = 150
-#holland_aantal_trajecten = 7
-#nl_aantal_trajecten = 20
+iteraties = [200, 500, 1000, 2000, 5000, 8000, 10000, 12000, 14000, 15000]
+experiment_count = 150
+holland_aantal_trajecten = 7
+nl_aantal_trajecten = 20
 
 # 7 langste trajecten in Holland
 copy_alle_trajecten_holland = alle_trajecten_holland.copy()

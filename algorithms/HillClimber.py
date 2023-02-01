@@ -13,16 +13,21 @@ import copy
 # if nieuwe score > oude score -> accepteer nieuw traject, verwijder oud traject
 
 class HillClimber:
+    """
+    Het Hill Climber algorithme neemt een oplossing als beginstate. 
+    Vervolgens worden er steeds kleine aanpassingen gedaan, als de aanpassing ervoor zorgt dat de score verbeterd wordt wordt de aanpassing geaccepteerd.
+    De kleine aanpassingen die gedaan worden: een random traject uit de beginstate wordt vervangen met een random traject uit alle mogelijke trajecten.  
+    """
     def __init__(self, beginstate, trajecten, G):
-        self.name = "HillClimber"
-        self.state = copy.deepcopy(beginstate)
-        self.trajecten = trajecten
-        self.graaf = copy.deepcopy(G)
-        self.score_state = calculate_score(self.graaf, self.state)
+        self.name = "HillClimber" # De naam van het algoritme. Attribuut is nodig voor het runnen van generate_experiment.
+        self.state = copy.deepcopy(beginstate) # De huidige state van de oplossing. Veranderd gedurende het runnen van het algoritme.
+        self.trajecten = trajecten # Alle mogelijke trajecten.
+        self.graaf = copy.deepcopy(G) # Een directed graaf met daarin de stations als nodes en de connecties als edges.
+        self.score_state = calculate_score(self.graaf, self.state) # De huidige score van de state. Veranderd gedurende het runnen van het algoritme. 
 
     def select_traject(self, state, trajecten):
         """
-        Selects traject from the current state and a traject from all possible trajecten.
+        Selecteert traject uit de huidige state en een traject uit alle mogelijke trajecten.
         """
 
         old_traject = random.choice(state)
@@ -32,17 +37,22 @@ class HillClimber:
     def create_new_state(self, old_traject, new_traject):
 
         """
-        Creates a new state, in which the old traject has been removed and the new traject has been added.
+        Creërt een nieuwe state, waarin het oude traject wordt verwijderd en wordt vervangen met het nieuwe traject.
         """
         
         new_state = copy.deepcopy(self.state)
+
+        # Verwijder oude traject
         new_state.remove(old_traject)
+
+        # Voeg nieuw traject toe
         new_state.append(new_traject)
+
         return new_state
 
     def compare_states(self, new_state):
         """
-        Check whether the new state is better. Changes current state if improved. 
+        Checkt of de potientiele nieuwe state beter is. De huidige state wordt veranderd als het een verbetering is.
         """
         new_score = calculate_score(self.graaf, new_state)
         if new_score > self.score_state:
@@ -52,20 +62,20 @@ class HillClimber:
     def run(self, iteraties):
 
         """
-        Climbing Hill algorithm. Keeps the best presented score, will run for x iterations.
+        Hill Climber algorithme. Het algoritme onthoud de beste score en runt voor x iteraties.
         """
 
         for i in range(iteraties):
-            # select random traject from state and random traject from all possible trajecten
+            # Selecteer random traject uit de huidige staat en random traject uit alle mogelijke trajecten.
             old_traject, new_traject = self.select_traject(self.state, self.trajecten)
 
-            # do not allow duplicates in solution
+            # Sta geen dubbele trajecten toe in oplossing.
             if new_traject not in self.state:
 
-                # remove old traject and add new traject to state
+                # Verwijder het oude traject en voeg het nieuwe traject toe.
                 new_state = self.create_new_state(old_traject, new_traject)
 
-                # keep the new state if the score is better, else keep old state
+                # Vervang de huidige state met de nieuwe state als de score beter is, anders wordt de huidige state behouden.
                 self.compare_states(new_state)
                 
 
