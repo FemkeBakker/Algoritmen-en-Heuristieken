@@ -224,6 +224,7 @@ best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_ran
 #create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #iteraties = [20000]
 # temp = [0.1, 1, 5, 10, 20, 30, 40, 50]
 #for i in temp:
@@ -232,6 +233,23 @@ best_solution_map(HC_random, StationsNationaal, 15000, "Nederland", "best_HC_ran
 
 # data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iteratie20000+temp")
 # create_boxplot(data_SA_temp,'SA_temp2, Nederland', 'Temperatuur', temp, 'Simulated Annealing')
+=======
+#   "Vergelijking Holland"
+#experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=5)
+#experiment.run_experiment()
+#data_SA_temp = generate_data(iteraties, "experiment\SimAnnealing-random-Nederland\iteratie")
+#create_boxplot(data_SA_temp,'SA, Nederland', 'Iteraties', iteraties, 'Simulated Annealing')
+
+
+iteraties = [5000, 10000, 15000, 20000]
+temp = [30]
+for i in temp:
+    experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_holland, 7, "Holland, temp30", G_holland, 'random', temperatuur=30)
+    experiment.run_experiment()
+
+data_SA_hol = generate_data(iteraties, "experiment\SimAnnealing-random-temptest\iteratie")
+create_boxplot(data_SA_hol,'SA_hol, Holland', 'Iteraties', iteraties, 'Simulated Annealing')
+>>>>>>> Stashed changes
 =======
 #   "Vergelijking Holland"
 #experiment = generate_experiment(SimAnnealing, iteraties, 150, alle_trajecten_nl, 20, "Nederland", G_nederland, 'random', temperatuur=5)
