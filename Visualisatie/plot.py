@@ -8,39 +8,39 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def create_plot(trajecten, df_stations, deel):
-    # Create map zoomed in on the Netherlands
+    # Maak kaart ingezoomd op Nederland
     m = folium.Map(location=[52.37, 4.90], zoom_start = 8)	
     folium.TileLayer('cartodbpositron').add_to(m)
 
-    # Loop through every row to add marker per station
+    # Zet voor elke rij in df een marker neer
     for i, row in df_stations.iterrows():
         folium.CircleMarker(location = [row['y'], row['x']], radius = 3, color = 'red', popup = row['station'], ).add_to(m)
 
     for traject in trajecten:
         traject_index = []
 
-        # Get a list of indexes of the stations in the right order
+        # Zet lijst op goede volgorde
         for station in traject:
             for index, row in df_stations.iterrows():
                 if row['station'] == station:
                     traject_index.append(row.name)
         
-        # Get a Dataframe of the stations in the right order
+        # Zet goede volgorde in df
         df_traject = df_stations.loc[traject_index]
 
-        # Create random colour for every traject
+        # Geef elk traject een random kleur
         chars = '0123456789ABCDEF'
         r_color = ['#'+''.join(random.sample(chars,6)) for i in range(1)]
         
-        # Add traject to map
+        # Voeg traject toe aan kaart
         folium.PolyLine(df_traject.iloc[:, [1,2]], color= r_color, weight=2.5, opacity=1).add_to(m)
     
-    # Create map, store in map.html
+    # Sla kaart op
     m.save('Visualisatie/map{}.html'.format(deel))
 
     return None
 
-# maak boxplot
+# Maak boxplot
 def create_boxplot(data_, deel, xas, x_ticklabels, title):
     bp = sns.boxplot(data = data_, width = .5, showfliers = False, linewidth = 2.5, palette = 'colorblind',  showmeans = True, meanprops = {'marker': 'o', 'markerfacecolor':'white', 'markeredgecolor':"black"})
     bp.set(title=title)
@@ -50,6 +50,7 @@ def create_boxplot(data_, deel, xas, x_ticklabels, title):
     plt.close()
     return bp
 
+# Functie om data tuple op te slaan voor boxplots
 def generate_data(iteraties, path):
     data_tup = tuple()
     for iteratie in iteraties:
