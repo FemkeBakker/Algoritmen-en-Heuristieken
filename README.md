@@ -65,19 +65,5 @@ In de tabel 'runtime tabel' wordt gekeken naar de runtime van de meest effectiev
 Uit de boxplots waarin alle algoritmes met elkaar vergeleken worden blijkt dat voor beide Nederland en Holland het Simulated Annealing algoritme het beste werkt. 
 
 
-####
-Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
-Tot runtime 20k iteraties SA: 892.22 (15- minuten)
-
-#### Milestone: Representatie
-Toegevoegd: Classes en Visualisatie
-
-
-
-
-
-####
-Tot runtime 30k iteraties SA: 6621.65 (110+ minuten)
-Tot runtime 20k iteraties SA: 892.22 (15- minuten)
 
 
