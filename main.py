@@ -130,7 +130,7 @@ create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillCli
 
 # Plot HillClimber met Random als beginstate in Nederland
 data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
-create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland', "HC_random")
+create_boxplot(data_NL,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland', "HC_random")
 
 # Plot HillClimber met 7langste trajecten als beginstate in Holland
 data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
@@ -208,5 +208,6 @@ iteraties = [200, 500, 1000, 2000, 5000, 10000, 20000]
 #experiment.run_experiment()
 
 # Maak boxplot van prestaties
-data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
+# data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
 # create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
+
