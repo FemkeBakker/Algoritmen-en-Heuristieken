@@ -130,7 +130,7 @@ create_boxplot(data_Hol,'Random_Hol_iteraties', 'Iteraties', iteraties, 'HillCli
 
 # Plot HillClimber met Random als beginstate in Nederland
 data_NL = generate_data(iteraties, "experiment\HillClimber-random-Nederland\iteratie")
-create_boxplot(data_Hol,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland', "HC_random")
+create_boxplot(data_NL,'Random_NL_iteraties', 'Iteraties', iteraties, 'HillClimber - Random Nederland', "HC_random")
 
 # Plot HillClimber met 7langste trajecten als beginstate in Holland
 data_Hol = generate_data(iteraties, "experiment\HillClimber-7langste-Holland\iteratie")
