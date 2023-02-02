@@ -212,5 +212,5 @@ data_SA_temp = generate_data(temp, "experiment\SimAnnealing-random-temptest\iter
 #experiment.run_experiment()
 
 # Maak boxplot van prestaties
-data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
+# data_SA_hol_temp30 = generate_data(iteraties, "experiment\SimAnnealing-random-Holland\iteratie")
 # create_boxplot(data_SA_hol_temp30,'SA_hol_temp30, Holland', 'Iteraties', iteraties, 'Simulated Annealing', 'SimAnnealing')
